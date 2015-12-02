@@ -1,0 +1,493 @@
+% ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+% Packages und Settings für Bibliographien
+% ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+% Description: Modern Bibliographie package with full customizability
+% Doc:  biblatex.pdf
+% Incompatible: ucs and every previous bibtex package
+\usepackage[
+  %style=alphabetic, % Loads the bibliography and the citation style 
+  style=numeric,
+  % bibstyle=alphabetic, % load a bibliography style
+  % citestyle=alphabetic, % load a citatio style
+  natbib=true, % define natbib compatible cite commands
+%%--- Backend --- --- ---
+  backend=biber,   % (bibtex, biber)
+  bibwarn=true,     %
+  texencoding=auto, % auto-detect the input encoding
+  bibencoding=auto, % (auto (equal to tex), <encoding>)
+]{biblatex}  
+% Other options:
+%  style=numeric, % 
+%  style=numeric-comp,    % [1-3, 7, 8]
+%  style=numeric-verb,    % [2]; [5]; [6]
+%  style=alphabetic,      % [Doe92; Doe95; Jon98]
+%  style=alphabetic-verb, % [Doe92]; [Doe95]; [Jon98]
+%  style=authoryear,      % Doe 1995a; Doe 1995b; Jones 1998
+%  style=authoryear-comp, % Doe 1992, 1995a,b; Jones 1998
+%  style=authoryear-ibid,
+%  style=authoryear-icomp,
+%  style=authortitle,
+%  style=authortitle-comp,
+%  style=authortitle-ibid,
+%  style=authortitle-icomp,
+%  style=authortitle-terse,
+%  style=authortitle-tcomp,
+%  style=authortitle-ticomp,
+
+%% APA Style
+%  style=apa
+%
+
+% biblatex bibliography options
+\IfPackageLoaded{biblatex}{%
+	\ExecuteBibliographyOptions{%
+	clearlang=true,
+%--- Sorting --- --- ---
+	sorting=nty, % Sort by name, title, year.
+	% other options: 
+	% nty        Sort by name, title, year.
+	% nyt        Sort by name, year, title.
+	% nyvt       Sort by name, year, volume, title.
+	% anyt       Sort by alphabetic label, name, year, title.
+	% anyvt      Sort by alphabetic label, name, year, volume, title.
+	% ynt        Sort by year, name, title.
+	% ydnt       Sort by year (descending), name, title.
+	% none       Do not sort at all. All entries are processed in citation order.
+	% debug      Sort by entry key. This is intended for debugging only.
+	%
+	sortcase=true,
+	sortcites=true, % do/do not sort citations according to bib	
+%--- Dates --- --- ---
+	date=comp,  % (short, long, terse, comp, iso8601)
+%	origdate=
+%	eventdate=
+%	urldate=
+%	alldates=
+	datezeros=true, %
+	dateabbrev=true, %
+%--- General Options --- --- ---
+%	maxnames=1,
+%	minnames=1,
+	maxbibnames=15,%
+	maxcitenames=3,%
+	uniquename=true,% (biber only)
+	maxalphanames=1,% (biber only)
+%	autocite= % (plain, inline, footnote, superscript) 
+	autopunct=true,
+	language=auto,
+	block=none, % (none, space, par, nbpar, ragged)
+	notetype=foot+end, % (foot+end, footonly, endonly)
+	hyperref=true, % (true, false, auto)
+	backref=false, %true
+	backrefstyle=three, % (none, three, two, two+, three+, all+)
+	backrefsetstyle=setonly, %
+	indexing=false, % 
+	% options:
+	% true       Enable indexing globally.
+	% false      Disable indexing globally.
+	% cite       Enable indexing in citations only.
+	% bib        Enable indexing in the bibliography only.
+	refsection=none, % (part, chapter, section, subsection)
+	refsegment=none, % (none, part, chapter, section, subsection)
+	abbreviate=true, % (true, false)
+	defernumbers=true, % 
+	punctfont=false, % 
+	%arxiv=abs, % (ps, pdf, format)	
+%--- Style Options --- --- ---	
+% The following options are provided by the standard styles
+	isbn=false,%
+	url=false,%
+	doi=false,%
+	eprint=false,%	
+	}%
+	
+	% Angabe der Sprache abschalten
+	\DeclareRedundantLanguages{english,german,french}{english,german,ngerman,french} 
+  % Workaround für .bib-Dateien von Zotero
+	\DeclareSourcemap{
+    \maps[datatype=bibtex]
+      {
+      \map{
+        \step[fieldset=language, null]
+        }
+      }
+    }
+
+	 
+}% \IfPackageLoaded{biblatex}
+% modifications for an alpha style
+%
+\IfPackageLoaded{biblatex}{%
+% the number is not used in the bibliography, nor
+% the citations, but for the list of publications
+% we want numbers to be available.
+\ExecuteBibliographyOptions{labelnumber}
+
+% change alpha label to be without +	
+\renewcommand*{\labelalphaothers}{}
+
+% % change 'In: <magazine>" to "<magazine>"
+% \renewcommand*{\intitlepunct}{}
+% \DefineBibliographyStrings{german}{in={}}
+% \DefineBibliographyStrings{english}{in={}}
+%
+% make names capitalized \textsc{}
+\renewcommand{\mkbibnamefirst}{\textsc}
+\renewcommand{\mkbibnamelast}{\textsc}
+
+% make volume and number look like 
+% 'Bd. 33(2004) Nr.44 '
+\renewbibmacro*{volume+number+eid}{%
+\setunit{\addcomma\space}%
+\bibstring{volume}% 
+\setunit{\addspace}%
+\printfield{volume}%
+\iffieldundef{year}{}{%
+  \printtext[parens]{%
+   \printfield{year}%
+   }%
+}%  
+\iffieldundef{number}{}{% 
+\setunit{\addspace}%
+\bibstring{number}
+\setunit{\addspace}%
+\printfield{number}%
+}%
+\setunit{\addcomma\space}%
+%\printfield{eid}
+%\setunit{\addcolon\space}%
+}	
+
+\renewbibmacro*{issue+date}{%
+  \setunit{\addcomma\space}%
+  \iffieldundef{issue}{}{%
+    \printfield{issue}%
+    \setunit*{\addspace}%
+  }%
+\newunit}%
+
+% <authors>: <title>
+\renewcommand*{\labelnamepunct}{\addcolon\space}
+% make ': ' before pages
+%\renewcommand*{\bibpagespunct}{\addcolon\space}
+% names delimiter ';' instead of ','
+%\renewcommand*{\multinamedelim}{\addsemicolon\space}
+
+% % % move date before issue
+% \renewbibmacro*{journal+issuetitle}{%
+% \usebibmacro{journal}%
+% % \usebibmacro{volume+year}
+%  \setunit*{\addspace}%
+%  \iffieldundef{volume}
+%   {}
+%   {\newunit
+%    \printfield{volume}%
+%    \setunit{\addspace}}%
+% % %
+%
+% % \usebibmacro{issue+date}%
+% % \setunit{\addcolon\space}%
+% % \usebibmacro{issue}%
+% % \setunit{\addspace}%
+%  \usebibmacro{volume+number+eid}%
+%  \newunit}
+%
+% % print all names, even if maxnames = 1
+% \DeclareCiteCommand{\citeauthors}
+% {
+% \defcounter{maxnames}{1000}
+% \boolfalse{citetracker}%
+% \boolfalse{pagetracker}%
+% \usebibmacro{prenote}}
+% {\ifciteindex
+%   {\indexnames{labelname}}
+%   {}%
+% \printnames{labelname}}
+% {\multicitedelim}
+% {\usebibmacro{postnote}}
+%
+% %% create a new style for an enumerated publication list
+% %% this code is taken from http://tex.stackexchange.com/questions/187181/independent-publication-list-with-numbered-list-using-biblatex-and-refsection
+%
+% %% Emphasize own name in References with boldface
+%
+% % Doc: xpatch.pdf
+% \usepackage{xpatch}% 
+% %
+% % % \bibboldnames: etoolbox-list of names to typeset bold in \printbibliography
+% % \newcommand*{\bibboldnames}{}
+% %
+% % \newbibmacro*{name:bold}[2]{%
+% %   \def\do##1{\ifstrequal{#1, #2}{##1}{\bfseries\listbreak}{}}%
+% %   \dolistloop{\bibboldnames}}
+% %
+% % %% # can not be used in patch command because the command is wrapped in another macro.
+% % %% Therefore we mus play around with cat codes.
+% % %%   see http://tex.stackexchange.com/questions/188188/loop-macro-fails-if-wrapped-in-conditional
+% % %%   for a better explaination.
+% % \begingroup\lccode`?=`#\lowercase{\endgroup
+% %   \xpretobibmacro{name:last}{\begingroup\usebibmacro{name:bold}{?1}{?2}}{}{}
+% %   \xpretobibmacro{name:first-last}{\begingroup\usebibmacro{name:bold}{?1}{?2}}{}{}
+% %   \xpretobibmacro{name:last-first}{\begingroup\usebibmacro{name:bold}{?1}{?2}}{}{}
+% % }%
+% % \xpretobibmacro{name:delim}{\begingroup\normalfont}{}{}
+% % \xapptobibmacro{name:last}{\endgroup}{}{}
+% % \xapptobibmacro{name:first-last}{\endgroup}{}{}
+% % \xapptobibmacro{name:last-first}{\endgroup}{}{}
+% % \xapptobibmacro{name:delim}{\endgroup}{}{}
+% %
+% % \DeclareNameAlias{default}{last-first/first-last}
+% %
+%
+%
+% % Define an new 'defbibenvironment'
+% % that includes numbers for use in extra refsections
+% \DeclareFieldFormat{labelnumberwidth}{#1\adddot}
+% \newlength{\periodwidth}
+% \settowidth{\periodwidth}{.}
+%
+% \defbibenvironment{numbered+bold}
+%   {\list
+%      {\printtext[labelnumberwidth]{%
+%         \printfield{prefixnumber}%
+%         \printfield{labelnumber}%
+%         }%
+%      }%
+%   {
+%    \setlength{\labelwidth}{\labelnumberwidth}%
+%    \setlength{\leftmargin}{\labelwidth}%
+%    \setlength{\labelsep}{\biblabelsep}%
+%    \addtolength{\labelsep}{1em}
+%    \addtolength{\leftmargin}{\labelsep}%
+%    \setlength{\itemsep}{\bibitemsep}%
+%    \setlength{\parsep}{\bibparsep}}%
+%    \renewcommand*{\makelabel}[1]{\hss##1}%
+%   }
+%   {\endlist}
+%   {\item}%\hskip-\periodwidth
+%   
+}% \IfPackageLoaded{biblatex}
+%\input{preamble/style-biblatex-alpha.tex}
+
+% Unterdrücke unerwünschte Felder (biber)
+\DeclareSourcemap{
+  \maps[datatype=bibtex, overwrite]{
+    \map{
+      \step[fieldset=language, null]
+      \step[fieldset=note, null]
+    }
+  }
+}
+
+%%% BRACUCHTS DES??? %%%%
+% % % \KOMAoptions{%
+% % %    % bibliography=oldstyle%
+% % %    bibliography=openstyle%
+% % % }%
+% % % %
+% % !TeX encoding=utf8
+% % !TeX spellcheck = en-US
+%
+% \IfPackageLoaded{biblatex}{%
+% 	\ExecuteBibliographyOptions{%
+% %--- Sorting --- --- ---
+% 	sorting=nty, % Sort by name, title, year.
+% 	% other options: 
+% 	% nty        Sort by name, title, year.
+% 	% nyt        Sort by name, year, title.
+% 	% nyvt       Sort by name, year, volume, title.
+% 	% anyt       Sort by alphabetic label, name, year, title.
+% 	% anyvt      Sort by alphabetic label, name, year, volume, title.
+% 	% ynt        Sort by year, name, title.
+% 	% ydnt       Sort by year (descending), name, title.
+% 	% none       Do not sort at all. All entries are processed in citation order.
+% 	% debug      Sort by entry key. This is intended for debugging only.
+% 	%
+% 	sortcase=true,
+% 	sortcites=true, % do/do not sort citations according to bib	
+% %--- Dates --- --- ---
+% 	date=comp,  % (short, long, terse, comp, iso8601)
+% %	origdate=
+% %	eventdate=
+% %	urldate=
+% %	alldates=
+% 	datezeros=true, %
+% 	dateabbrev=true, %
+% %--- General Options --- --- ---
+% %	maxnames=1,
+% %	minnames=1,
+% 	maxbibnames=15,%
+% 	maxcitenames=1,%
+% 	uniquename=true,% (biber only)
+% 	maxalphanames=1,% (biber only)
+% %	autocite= % (plain, inline, footnote, superscript) 
+% 	autopunct=true,
+% 	language=auto,
+% 	block=none, % (none, space, par, nbpar, ragged)
+% 	notetype=foot+end, % (foot+end, footonly, endonly)
+% 	hyperref=true, % (true, false, auto)
+% 	backref=true,
+% 	backrefstyle=three, % (none, three, two, two+, three+, all+)
+% 	backrefsetstyle=setonly, %
+% 	indexing=false, % 
+% 	% options:
+% 	% true       Enable indexing globally.
+% 	% false      Disable indexing globally.
+% 	% cite       Enable indexing in citations only.
+% 	% bib        Enable indexing in the bibliography only.
+% 	refsection=none, % (part, chapter, section, subsection)
+% 	refsegment=none, % (none, part, chapter, section, subsection)
+% 	abbreviate=true, % (true, false)
+% 	defernumbers=true, % 
+% 	punctfont=false, % 
+% 	arxiv=abs, % (ps, pdf, format)	
+% %--- Style Options --- --- ---	
+% % The following options are provided by the standard styles
+% 	isbn=false,%
+% 	url=false,%
+% 	doi=false,%
+% 	eprint=false,%
+% 	}%	
+% }% \IfPackageLoaded{biblatex}
+%
+%
+%
+% % !TeX encoding=utf8
+% % !TeX spellcheck = en-US
+%
+% \IfPackageLoaded{biblatex}{%
+% % the number is not used in the bibliography, nor
+% % the citations, but for the list of publications
+% % we want numbers to be available.
+% \ExecuteBibliographyOptions{labelnumber}
+%
+% % change alpha label to be without +	
+% \renewcommand*{\labelalphaothers}{}
+%
+% % change 'In: <magazine>" to "<magazine>"
+% \renewcommand*{\intitlepunct}{}
+% \DefineBibliographyStrings{german}{in={}}
+% \DefineBibliographyStrings{english}{in={}}
+%
+% % make names capitalized \textsc{}
+% \renewcommand{\mkbibnamefirst}{\textsc}
+% \renewcommand{\mkbibnamelast}{\textsc}
+%
+% % make volume and number look like 
+% % 'Bd. 33(14): '
+% \renewbibmacro*{volume+number+eid}{%
+% \setunit{\addcomma\space}%
+% \bibstring{volume}% 
+% \setunit{\addspace}%
+% \printfield{volume}%
+% \iffieldundef{number}{}{% 
+%  \printtext[parens]{%
+%    \printfield{number}%
+%  }%
+% }%
+% \setunit{\addcomma\space}%
+% \printfield{eid}
+% %\setunit{\addcolon\space}%
+% }	
+%
+% % <authors>: <title>
+% \renewcommand*{\labelnamepunct}{\addcolon\space}
+% % make ': ' before pages
+% \renewcommand*{\bibpagespunct}{\addcolon\space}
+% % names delimiter ';' instead of ','
+% %\renewcommand*{\multinamedelim}{\addsemicolon\space}
+%
+% % move date before issue
+% \renewbibmacro*{journal+issuetitle}{%
+% \usebibmacro{journal}%
+% \setunit*{\addspace}%
+% \iffieldundef{series}
+%  {}
+%  {\newunit
+%   \printfield{series}%
+%   \setunit{\addspace}}%
+% %
+% \usebibmacro{issue+date}%
+% \setunit{\addcolon\space}%
+% \usebibmacro{issue}%
+% \setunit{\addspace}%
+% \usebibmacro{volume+number+eid}%
+% \newunit}
+%
+% % print all names, even if maxnames = 1
+% \DeclareCiteCommand{\citeauthors}
+% {
+% \defcounter{maxnames}{1000}
+% \boolfalse{citetracker}%
+% \boolfalse{pagetracker}%
+% \usebibmacro{prenote}}
+% {\ifciteindex
+%   {\indexnames{labelname}}
+%   {}%
+% \printnames{labelname}}
+% {\multicitedelim}
+% {\usebibmacro{postnote}}
+%
+% %% create a new style for an enumerated publication list
+% %% this code is taken from http://tex.stackexchange.com/questions/187181/independent-publication-list-with-numbered-list-using-biblatex-and-refsection
+%
+% % %% Emphasize own name in References with boldface
+% %
+% % % Doc: xpatch.pdf
+% % \usepackage{xpatch}% 
+% %
+% % % \bibboldnames: etoolbox-list of names to typeset bold in \printbibliography
+% % \newcommand*{\bibboldnames}{}
+% %
+% % \newbibmacro*{name:bold}[2]{%
+% %   \def\do##1{\ifstrequal{#1, #2}{##1}{\bfseries\listbreak}{}}%
+% %   \dolistloop{\bibboldnames}}
+% % %
+% % %% # can not be used in patch command because the command is wrapped in another macro.
+% % %% Therefore we mus play around with cat codes.
+% % %%   see http://tex.stackexchange.com/questions/188188/loop-macro-fails-if-wrapped-in-conditional
+% % %%   for a better explaination.
+% % \begingroup\lccode`?=`#\lowercase{\endgroup
+% %   \xpretobibmacro{name:last}{\begingroup\usebibmacro{name:bold}{?1}{?2}}{}{}
+% %   \xpretobibmacro{name:first-last}{\begingroup\usebibmacro{name:bold}{?1}{?2}}{}{}
+% %   \xpretobibmacro{name:last-first}{\begingroup\usebibmacro{name:bold}{?1}{?2}}{}{}
+% % }%
+% % \xpretobibmacro{name:delim}{\begingroup\normalfont}{}{}
+% % \xapptobibmacro{name:last}{\endgroup}{}{}
+% % \xapptobibmacro{name:first-last}{\endgroup}{}{}
+% % \xapptobibmacro{name:last-first}{\endgroup}{}{}
+% % \xapptobibmacro{name:delim}{\endgroup}{}{}
+% %
+% % \DeclareNameAlias{default}{last-first/first-last}
+% %
+%
+% %
+% % % Define an new 'defbibenvironment'
+% % % that includes numbers for use in extra refsections
+% % \DeclareFieldFormat{labelnumberwidth}{#1\adddot}
+% % \newlength{\periodwidth}
+% % \settowidth{\periodwidth}{.}
+% %
+% % \defbibenvironment{numbered+bold}
+% %   {\list
+% %      {\printtext[labelnumberwidth]{%
+% %         \printfield{prefixnumber}%
+% %         \printfield{labelnumber}%
+% %         }%
+% %      }%
+% %   {
+% %    \setlength{\labelwidth}{\labelnumberwidth}%
+% %    \setlength{\leftmargin}{\labelwidth}%
+% %    \setlength{\labelsep}{\biblabelsep}%
+% %    \addtolength{\labelsep}{1em}
+% %    \addtolength{\leftmargin}{\labelsep}%
+% %    \setlength{\itemsep}{\bibitemsep}%
+% %    \setlength{\parsep}{\bibparsep}}%
+% %    \renewcommand*{\makelabel}[1]{\hss##1}%
+% %   }
+% %   {\endlist}
+% %   {\item}%\hskip-\periodwidth
+%   
+% }% \IfPackageLoaded{biblatex}

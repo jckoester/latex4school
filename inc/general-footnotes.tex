@@ -1,0 +1,19 @@
+% Stil der Fußnoten
+% Trennzeichen für unmittelbar aufeinanderfolgende Fußnoten
+%\renewcommand*{\multfootsep}{,\nobreakspace}
+\KOMAoptions{%   
+  footnotes=multiple% nomultiple
+}
+% Abstand Text-Fußnoten
+\addtolength{\skip\footins}{\baselineskip}
+% Formatierung der Fußnoten
+\deffootnote
+  [1em]% Breite des Marker
+  {1em}% Einrückung
+  {1em}% Einrückung par (nach Umbruch)
+  {\textsuperscript{\thefootnotemark}\,}% Text
+% Limit space of footnotes to 10 lines
+% \setlength{\dimen\footins}{10\baselineskip}
+% prevent continuation of footnotes 
+% at facing page
+%\interfootnotelinepenalty=10000 

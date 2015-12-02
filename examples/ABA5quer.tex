@@ -1,0 +1,37 @@
+\documentclass[a5paper, landscape]{ksab}
+
+\title{Ein AB in A5 Querformat}
+
+\ohead*{Beispiele \texttt{ksab}}
+\ihead{\LaTeX}
+
+\begin{document}
+
+  \maketitle
+  
+  \begin{multicols}{2}
+
+  Arbeitsblattumgebung in der Standardgröße DIN A5 (quer) mit breitem Rand oben für Lochung.\\
+  Eingebunden mit:
+  \begin{verbatim}
+    \documentclass[a5paper, landscape]{ksab}
+  \end{verbatim}
+  
+  Die Kopfzeilen werden mit folgenden Kommandos erzeugt:
+  \begin{verbatim}
+    \ohead*{Beispiele \texttt{ksab}}
+    \ihead{\LaTeX}
+  \end{verbatim}
+  
+  Zwei Spalten werden erzeugt mittels
+  \begin{verbatim}
+    \begin{multicols}{2}
+    \end{multicols}
+  \end{verbatim}
+  
+  
+  \section{Blindtext}
+
+    \blindtext[1]
+  \end{multicols}
+\end{document}

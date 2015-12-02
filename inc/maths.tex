@@ -1,0 +1,53 @@
+%TODO wieder aktivieren, falls was fehlt!
+%%% General Doc: symbols-a4.pdf
+%
+% %% Math symbols
+% \IfPackagesNotLoaded{mathdesign,MnSymbol,MdSymbol}{
+%   \usepackage{dsfont}   %% Double Stroke Fonts
+%   \usepackage{amssymb}
+% }{}
+% % Futher Math symbols and script fonts
+% \IfPackagesNotLoaded{MnSymbol,MdSymbol}{
+%   \usepackage{esint} % generate missing integrals for lmodern
+%   %
+%   % provides further symbols of the Text Companion (TC) fonts
+%   % such as \tcmu, \tcperthousand, \tcdegree
+%   \usepackage{mathcomp} 
+%   \usepackage[mathcal]{euscript} %% adds euler mathcal font
+%   \IfPackagesNotLoaded{mdbch}{
+%     \usepackage{mathrsfs} % script font (\mathscr)
+%   }{}
+% }{}
+% 
+% \usepackage[integrals]{wasysym}
+
+%\usepackage{bbding}
+%% The European Currency Symbol
+\usepackage[gen]{eurosym}
+
+
+%% Common Symbols
+% \usepackage{pifont}   %% ZapfDingbats
+
+
+%%% print vector in bold
+%\let\oldvec\vec
+%\def\vec#1{{\boldsymbol{#1}}} % bold vector
+%\newcommand{\ve}{\vec} %
+
+%%% exchange greek symbols
+\let\ORGvarepsilon=\varepsilon
+\let\varepsilon=\epsilon
+\let\epsilon=\ORGvarepsilon
+%
+% \let\ORGvarrho=\varrho
+% \let\varrho=\rho
+% \let\rho=\ORGvarrho
+%
+% \let\ORGvartheta=\vartheta
+% \let\vartheta=\theta
+% \let\theta=\ORGvartheta
+%
+% \let\ORGvarphi=\varphi
+% \let\varphi=\phi
+% \let\phi=\ORGvarphi

@@ -1,0 +1,416 @@
+
+% Description: extents the float mechanism of LaTeX and
+%              provides macros for precise placement of 
+%              figures, tables and captions.
+%              works well together with the caption pack.
+% load before: caption 
+% Doc: floatrow.pdf 
+\usepackage{floatrow, fr-fancy}
+
+% Description: The caption package offers customization
+%              of captions in floating environments such
+%              figure and table and cooperates with many 
+%              other packages.
+% Doc: caption.pdf (Required v3.2 or newer)
+\usepackage{caption}[2011/08/06]
+
+%% subfig ist NOT recommended, use subcaption instead
+%% Incompatible: 
+%% - loads package capt-of. Loading of 'capt-of' afterwards will fail therefor
+%% - subcaption
+%% loads: caption
+%% Doc: subfig.pdf
+%\usepackage{subfig} 
+
+% Description: subcaption supports typesetting of sub-captions
+%             (by using the the sub-caption feature of the caption package).
+% incompatible: subfig
+% Doc: subcaption.pdf
+\IfPackageNotLoaded{subfig}{
+  % load after caption package
+  \usepackage{subcaption}[2011/08/17]
+}
+
+% Description: provides a margincap environment for putting 
+%              captions into the outer document margin with 
+%              either a top or bottom alignment.
+% Doc: mcaption.pdf
+% \usepackage[
+%   top, %  vertical caption alignment (top, bottom)
+% ]{mcaption}
+
+% Description: provides two new environments, sidewaystable and sidewaysfigure,
+%              and further commands to rotate content.
+% Doc: rotating.pdf
+\usepackage[figuresright]{rotating}
+
+\IfPackageLoaded{amsmath}{
+% Numbering of figures and table in each chapter
+% \numberwithin{figure}{chapter}
+% \numberwithin{table}{chapter}
+}
+
+% Style of captions and subcaptions (and subfig)
+\IfPackageLoaded{caption}{%
+% Style of captions
+\DeclareCaptionStyle{captionStyleTemplateDefault}
+[ % single line captions
+  justification = centering
+]
+{ % multiline captions
+% -- Formatting
+  format    = plain,  % plain, hang
+  indention  = 0em,   % indention of text 
+  labelformat = default,% default, empty, simple, brace, parens
+  labelsep   = colon,  % none, colon, period, space, quad, newline, endash
+  textformat  = simple, % simple, period
+% -- Justification
+  justification = justified, %RaggedRight, justified, centering
+  singlelinecheck = true, % false (true=ignore justification setting in 
+%single line)
+% -- Fonts
+  labelfont  = {small,bf},
+  textfont   = {small,rm},
+% valid values:
+% scriptsize, footnotesize, small, normalsize, large, Large
+% normalfont, ip, it, sl, sc, md, bf, rm, sf, tt
+% singlespacing, onehalfspacing, doublespacing
+% normalcolor, color=<...>
+%
+% -- Margins and further paragraph options
+  margin = 10pt, %.1\textwidth,
+  % width=.8\linewidth,
+% -- Skips
+  skip    = 10pt, % vertical space between the caption and the figure
+  position = auto, % top, auto, bottom
+% -- Lists
+  % list=no, % suppress any entry to list of figure 
+  listformat = subsimple, % empty, simple, parens, subsimple, subparens
+% -- Names & Numbering
+  % figurename = Abb. %
+  % tablename  = Tab. %
+  % listfigurename=
+  % listtablename=
+  % figurewithin=chapter
+  % tablewithin=chapter
+%-- hyperref related options
+  hypcap=true, % (true, false) 
+  % true=all hyperlink anchors are placed at the 
+  % beginning of the (floating) environment
+  %
+  hypcapspace=0.5\baselineskip
+}
+
+% apply caption style
+\captionsetup{
+  style = captionStyleTemplateDefault % base
+}
+
+% Predefinded skip setup for different floats
+\captionsetup[table]{position=bottom}
+\floatsetup[table]{capposition=below}
+\captionsetup[figure]{position=bottom}
+
+\newcommand\FigureAbbrevition{Fig.}
+\IfDefined{iflanguage}{%
+  \iflanguage{ngerman}{%
+    \renewcommand\FigureAbbrevition{Abb.}
+  }{}
+}
+
+\DeclareCaptionStyle{captionStyleTemplateShortDefault}{%
+  style=captionStyleTemplateDefault,
+  name=\FigureAbbrevition,
+  indention=0pt,
+  justification=RaggedRight
+}
+
+% Short Names 
+\IfDefined{wrapfigure}{%
+  \captionsetup[wrapfigure]{style=captionStyleTemplateShortDefault}}
+\IfDefined{wrapfloat}{%
+  \captionsetup[wrapfloat]{style=captionStyleTemplateShortDefault}}
+\IfDefined{floatingfigure}{%
+  \captionsetup[floatingfigure]{style=captionStyleTemplateShortDefault}}
+\IfDefined{margincap}{%
+  \IfDefined{preto}{\preto\margincap{
+  \captionsetup{style=captionStyleTemplateShortDefault}}}}
+  % see http://tex.stackexchange.com/questions/37721/captionsetup-for-margin-caption
+  % for an explanation of the extra code.
+  %
+} % end \IfPackageLoaded{caption}
+
+% options for subcaptions
+\IfPackageLoaded{subcaption}{
+  \captionsetup[sub]{ %
+    style = captionStyleTemplateDefault, % base
+    labelfont  = {footnotesize,bf},
+    textfont   = {footnotesize,rm},
+    justification = RaggedRight, %RaggedRight, justified, centering
+    skip=6pt,
+    margin=5pt,
+    labelformat = simple,% default, empty, simple, brace, parens
+    labelsep    = space,
+    list=false,
+    hypcap=false
+  }
+  % make subcaptions be referenced as 5.3(b)
+  \renewcommand\thesubfigure{(\alph{subfigure})} 
+}
+
+% style options for subfig
+\IfPackageLoaded{caption}{%
+ \IfPackageLoaded{subfig}{%
+  \captionsetup[subfloat]{%
+   style = captionStyleTemplateDefault, % base
+   skip=6pt,
+   margin=5pt,
+   labelformat = parens,% default, empty, simple, brace
+   labelsep    = space,
+   list=false,
+   hypcap=false
+  }
+ } % end \IfPackageLoaded{subfig}
+} % end \IfPackageLoaded{caption}
+\captionsetup[figure]{style=captionStyleTemplateShortDefault}
+%\input{preamble/style-caption.tex}
+
+% Style of figure placement with floatrow
+\IfPackageLoaded{floatrow}{%
+
+%\floatsetup[table]{style=plaintop}
+
+\DeclareFloatStyle{TemplateFloatStyleBoxed}%
+   {style=Boxed,frameset={\fboxrule1pt\fboxsep12pt}}
+   
+\DeclareFloatVCode{grayruleabove}%
+   {{\color{gray}\par\rule\hsize{2.8pt}\vskip4pt\par}}
+   
+\DeclareFloatVCode{grayrulebelow}%
+   {{\color{gray}\par\vskip4pt\rule\hsize{2.8pt}}}
+   
+\DeclareColorBox{TemplateFloatColorBoxStyle}%
+   {\fcolorbox{gray}{white}}
+   
+\DeclareObjectSet{centering}{\centering}
+
+\DeclareMarginSet{center}%
+   {\setfloatmargins{\hfil}{\hfil}}
+   
+\DeclareMarginSet{hangleft}%
+   {\setfloatmargins{\hskip-\marginparwidth\hskip-\marginparsep}{\hfil}}
+   
+\DeclareFloatSeparators{marginparsep}%
+   {\hskip\marginparsep}
+
+\floatsetup{%
+   %% style
+   style={%
+      plain % Standard LaTeX
+      % plaintop % puts captions above float object's contents
+      % Plaintop % Capitalized form of plaintop
+      % ruled
+      % Ruled
+      % boxed
+      % Boxed
+      % BOXED
+      % shadowbox
+      % Shadowbox
+      % SHADOWBOX
+      % Doublebox
+      % DOUBLEBOX
+      % wshadowbox
+      % Wshadowbox
+      % WSHADOWBOX
+   },%
+   %%% --- Font --
+   % uses caption-package formats
+   % font=
+   % footfont=
+   %%% --- Position of Caption ---
+%   capposition=top, % caption above object
+%   %% caption above object and also aligned by top line in float row.
+%   capposition=TOP, 
+%   capposition=bottom, % caption below object
+%   capposition=beside, % caption beside object.
+%   %
+%   %%% --- Position of Beside Caption ---
+%   %% caption is printed to the left side of object
+%   capbesideposition=left, 
+%   %% caption is printed to the right side of object;
+%   capbesideposition=right, 
+%   % caption is printed in binding side of page if
+%   % twoside option switched on in document class and key
+%   % facing=yes is used; in oneside option of document
+%   % (or key facing=no is used), caption is printed at the left side;
+%   capbesideposition=inside,
+%   capbesideposition=outside,
+%   % least popular option: caption printed in outer side of page
+%   % if twoside option switched on in document class and key
+%   % facing=yes is used; in oneside option of document
+%   % (or key facing=no is used), caption is printed at the right side.
+%   capbesideposition=top, % caption aligned to the top of object;
+%   capbesideposition=bottom, % caption aligned to the bottom of object;
+%   capbesideposition=center, % caption aligned to the center of object.
+%   %
+%   capbesidewidth=4cm, % Defines width of beside caption.
+%   floatwidth=7cm, % Defines width of objects
+%   capbesideframe=no, % Align Caption at frame, not text
+   %
+   footposition=default, % if caption above float object foot material is placed
+                         % below float object, otherwise below caption;
+%   footposition=caption, % always placed below caption;
+%   footposition=bottom,  % always placed at the bottom of float box.
+   %
+   %%% --- Vertical Alignment of Float Elements ---
+   %% - heightadjust ----
+   heightadjust={%
+      %all, % adjust both caption and object heights
+                     % (e.g. for styles ruled, Ruled and BOXED);
+      % caption, % adjust caption heights (e.g. for Plaintop style);
+      object, % adjust object heights (e.g. for Boxed style);
+      % none, % nothing to be adjusted (the plain style);
+      % nocaption, % no adjusting for captions;
+      % noobject, % no adjusting for objects;
+   },%
+   %
+   %% - valign ---
+   % valign=t, % aligns objects by top line;
+   % valign=c, % aligns objects by center line
+   valign=b, % aligns objects by bottom line;
+   % valign=s, % stretches objects by full height (if it is possible).
+   %%% --- Facing Layout ---
+   facing=yes, % different layout for even and odd pages in if twoside is on
+   %%% --- Object Settings ---
+   %% - objectset: Defines justification of float object (float contents).
+   % objectset=justified,    %
+   objectset=centering,    %
+   % objectset=raggedright,  %
+   % objectset=RaggedRight,  %
+   %%% --- Defining Float Margins ---
+   %% - margins: ????
+   margins=centering,   %
+   % margins=raggedright, %
+   % margins=raggedleft,  %
+   %%% --- Defining Float Separators ---
+   % horizontal skip = \columnsep (default for both keys);
+    floatrowsep=columnsep, 
+   % floatrowsep=quad,  % horizontal skip = 1 em;
+   % floatrowsep=qquad, % horizontal skip = 2 em;
+   % floatrowsep=hfil,  % like \hfil
+   % floatrowsep=hfill, % like \hfill
+   % floatrowsep=none,  % empty separator
+   %
+   % horizontal skip = \columnsep (default for both keys);
+   capbesidesep=columnsep, 
+   % capbesidesep=quad,  % horizontal skip = 1 em;
+   % capbesidesep=qquad, % horizontal skip = 2 em;
+   % capbesidesep=hfil,  % like \hfil
+   % capbesidesep=hfill, % like \hfill
+   % capbesidesep=none,  % empty separator
+   %%% --- Defining Float Rules/Skips ---
+   %% - precode:     above float box
+   precode={
+      none %
+      % thickrule %
+      % rule %
+      % lowrule %
+      % captionskip
+   },%
+   %% - rowprecode:  above alone float box
+   rowprecode={
+      none %
+      % thickrule %
+      % rule %
+      % lowrule %
+      % captionskip
+   },%
+   %% - midcode:     between caption above/below and float object.
+   midcode={%
+      %none %
+      % thickrule %
+      % rule %
+      % lowrule %
+      captionskip
+   },%
+   %% - postcode:    below float box
+   postcode={%
+      none %
+      % thickrule %
+      % rule %
+      % lowrule %
+      % captionskip
+   },%
+   %% - rowpostcode: below alone float box
+   rowpostcode={%
+      none %
+      % thickrule %
+      % rule %
+      % lowrule %
+      % captionskip
+   },%
+   %%% --- Defining Float Frames ---
+%   framestyle={%
+%      % fbox %
+%      colorbox %
+%      % doublebox %
+%      % shadowbox %
+%      % wshadowbox %
+%   },
+   %% - frameset: The parameters for chosen frame
+   % frameset={\fboxrule1pt\fboxsep12pt},
+%   framearound={%
+%      object % float object contents
+%      % all % full float box
+%   },
+   framefit=yes, % fit frame to whatever is set
+   %%% --- Settings for Colored Frames ---
+   % Predefinded ColorBox (\DeclareColorBox)
+%   colorframeset=TemplateFloatColorBoxStyle,
+   %%% --- Defining Float Skips ---
+   captionskip=5pt,
+   footskip=\skip\footins,
+   %%% --- Defining Float Footnote Rule's Style ---
+   % Defines type of footnote rule for footnotes inside floating environment.
+   footnoterule={
+      normal   % standard LaTeX definition
+      % limited  % standard LaTeX definition, max width of footnote \frulemax
+      % fullsize % rule to full current text width.
+      % none     % Absent rule.
+   },
+   %%% --- Managing Floats with [H] Placement Option ---
+   % doublefloataswide=true, % ???
+   % floatHaslist=false, % only true for backward compatibility
+}
+
+
+\floatsetup[FloatStyleCaptionMargin]{
+  margins=hangleft,
+  floatwidth=\textwidth,
+  capposition=beside,
+  capbesideposition=left,
+  capbesideframe=no,
+  capbesidewidth=\marginparwidth,
+  capbesidesep=marginparsep,
+  framestyle=framefit=yes,
+}
+
+%%% Replacement of <float> Package
+%\DeclareNewFloatType{%
+%   placement={%
+%      tbh % any of t,b,h,p
+%   },%
+%   name={
+%      % Defines the name of environment in the caption label.
+%   },%
+%   fileext={
+%       % Defines extension of the file in which gathered list of floats.
+%   }
+%   within={% Reset caption within...
+%      % nothing = do not reset ever
+%      section % also section/chapter/part
+%   },%
+%   relatedcapstyle=yes % yes/no, related to \captionsetup
+%}%
+
+}% end if 

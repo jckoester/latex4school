@@ -1,0 +1,28 @@
+% \DefineCodeSection[true]{PackagesChem}
+% 
+% ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+% chemistry packages
+% ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+% \BeginCodeSection{PackagesChem}
+
+% Description: a collection of macros and commads for typesetting chemistry documents
+\usepackage{chemmacros}
+% Description: Display icons and H/P sentences according to the GHS
+\usepackage{ghsystem}
+% Description: typset nice chemical formula and equations
+\usepackage{chemformula}
+% Description: create chemical structures
+\usepackage{chemfig}
+% Description: easily create energy diagrams
+\usepackage{endiagram}
+% 
+% \EndCodeSection{PackagesChem}
+
+% style setup of chemfig
+% Für numerierte Atome
+\definesubmol\nobond{[,0.2,,,draw=none]}
+% Abstand der Atome
+\setatomsep{2em}
+% Oxidationszahlen
+\chemsetup{modules=redox}
+\chemsetup[redox]{explicit-sign=true}

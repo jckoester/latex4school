@@ -1,0 +1,89 @@
+% Description: Color support with color mixing modells
+\usepackage[
+  dvipsnames, % Load a set of predefined colors 
+  table,      % Load the colortbl package
+  % fixpdftex,  % Load the pdfcolmk package (may be problematic)
+  hyperref,   % Support  the  hyperref  package
+  fixinclude, % Prevent dvips color reset before .eps file inclusion
+]{xcolor}
+
+\IfMultDefined{definecolor,colorlet}{%
+
+% color of headings
+%\definecolor{sectioncolor}{RGB}{0, 51, 153} % blue
+%\definecolor{sectioncolor}{RGB}{0, 25, 152} % darker blue
+\definecolor{sectioncolor}{RGB}{0, 0, 0}     % black
+%
+% Farbe fuer grau hinterlegte Boxen (fuer Paket framed.sty)
+\definecolor{frameshadecolor}{gray}{0.90}
+
+\definecolor{pdfanchorcolor}{named}{black}
+\definecolor{pdfmenucolor}{named}{red}
+\definecolor{pdfruncolor}{named}{cyan}
+
+\SetTemplateDefinition{Target}{Web}{%
+  \IfDefined{definecolor}{
+    \definecolor{pdfurlcolor}{rgb}{0,0,0.6}
+    \definecolor{pdffilecolor}{rgb}{0.7,0,0}
+    \definecolor{pdflinkcolor}{rgb}{0,0,0.6}
+    \definecolor{pdfcitecolor}{rgb}{0,0,0.6}
+  }
+}%
+\SetTemplateDefinition{Target}{Print}{%
+  \IfDefined{definecolor}{
+    \definecolor{pdfurlcolor}{rgb}{0,0,0}
+    \definecolor{pdffilecolor}{rgb}{0,0,0}
+    \definecolor{pdflinkcolor}{rgb}{0,0,0}
+    \definecolor{pdfcitecolor}{rgb}{0,0,0}
+  }
+}%
+
+% Execute color definition defined by Target->Web
+\UseDefinition{Target}{Web}
+
+% table colors 
+\colorlet{tablebodycolor}{white!100}
+\colorlet{tablerowcolor}{gray!10}
+\colorlet{tablesubheadcolor}{gray!30}
+\colorlet{tableheadcolor}{gray!25}
+
+% TODO: Wichtige Farben hier definieren!
+% different colors ALT:
+\definecolor{verylightgray}{gray}{0.90} % ALT
+\definecolor{oxncolor}{gray}{0.0}
+
+% Grautöne
+\colorlet{weiss}{white}
+\colorlet{hellgrau}{gray!50}
+\colorlet{grau}{gray}
+\colorlet{dunkelgrau}{darkgray}
+\colorlet{schwarz}{black}
+
+% Gelb
+\definecolor{gelb}{RGB}{255,242,0}
+\colorlet{hellgelb}{gelb!50}
+% Rot
+\definecolor{rot}{RGB}{255,0,0}
+\colorlet{hellrot}{rot!50}
+% Blau
+%\definecolor{blau}{RGB}{0,0,255}
+\colorlet{blau}{NavyBlue}
+\colorlet{hellblau}{blau!50}
+% Grün
+\definecolor{gruen}{RGB}{60,202,50}
+\colorlet{hellgruen}{gruen!50}
+% Orange
+\definecolor{orange}{RGB}{255,130,0}
+\colorlet{hellorange}{orange!50!hellgelb}
+% Lila
+%\definecolor{orange}{RGB}{255,130,0}
+\colorlet{lila}{blau!40!rot}
+\colorlet{helllila}{lila!60}
+
+% Funktions-Farben
+\colorlet{orga-gelb}{gelb}
+\colorlet{chemie-gruen}{gruen}
+\colorlet{mathe-rot}{rot}
+\colorlet{nwt-blau}{blau!60}
+\colorlet{technik-grau}{grau!60}
+}{} % End: \IfMultDefined{definecolor}

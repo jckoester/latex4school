@@ -1,0 +1,36 @@
+\documentclass[a4paper, landscape]{ksab}
+
+\title{Ein AB in A4 Querformat}
+
+\ohead*{Beispiele \texttt{ksab}}
+\ihead{\LaTeX}
+
+\begin{document}
+  \begin{multicols}{2}
+
+  \maketitle
+  
+  Arbeitsblattumgebung in der Standardgröße DIN A4 (quer) mit breitem Rand oben für Lochung. Am besten zu befüllen mit zwei oder mehr Spalten.\\
+  Eingebunden mit:
+  \begin{verbatim}
+    \documentclass[a4paper, landscape]{ksab}
+  \end{verbatim}
+  
+  Die Kopfzeilen werden mit folgenden Kommandos erzeugt:
+  \begin{verbatim}
+    \ohead*{Beispiele \texttt{ksab}}
+    \ihead{\LaTeX}
+  \end{verbatim}
+  
+  Zwei Spalten werden erzeugt mittels
+  \begin{verbatim}
+    \begin{multicols}{2}
+    \end{multicols}
+  \end{verbatim}
+  
+  
+  \section{Blindtext}
+
+    \blindtext[4]
+  \end{multicols}
+\end{document}

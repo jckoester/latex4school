@@ -1,0 +1,46 @@
+% Tabellen
+\usepackage{booktabs}
+\usepackage{tabu}
+\usepackage{tabularx}
+\usepackage{tabulary}
+\usepackage{longtable}
+\usepackage{multirow}
+%, colortbl, array}
+
+% Zeilenhöhe (Für AB), allegmein evtl. weniger
+\def\arraystretch{1.25}%
+% for Package tabu
+% \IfDefined{tabulinesep}{%
+%   \tabulinesep=5pt
+% }
+% % Abstand Inhalt-Linie muss 0 sein für rowcolor
+\setlength{\belowrulesep}{0pt}
+\setlength{\aboverulesep}{0pt}
+
+\def\arraystretch{1.5}%  1 is the default, change whatever you need
+
+%\newcolumntype{C}[1]{>{\Centering\arraybackslash\hspace{0pt}}p{#1}}
+
+% Define new column types only if they are not yet defined
+\IfDefined{RaggedLeft}{
+  %% centered (Z):
+  \IfColumntypeDefined{Z}{}
+    {\newcolumntype{Z}{>{\Centering\arraybackslash\hspace{0pt}}X}}
+  %% right (X):
+  \IfColumntypeDefined{Y}{}
+    {\newcolumntype{Y}{>{\RaggedLeft\arraybackslash\hspace{0pt}}X}}
+  %% left (X):
+  \IfColumntypeDefined{W}{}
+    {\newcolumntype{W}{>{\RaggedRight\arraybackslash\hspace{0pt}}X}}
+  %% left (p):
+  \IfColumntypeDefined{L}{}
+    {\newcolumntype{L}[1]{>{\RaggedRight\arraybackslash\hspace{0pt}}p{#1}}}
+  %% right (p):
+  \IfColumntypeDefined{R}{}
+    {\newcolumntype{R}[1]{>{\RaggedLeft\arraybackslash\hspace{0pt}}p{#1}}}
+  %% centered (p):
+  \IfColumntypeDefined{C}{}
+    {\newcolumntype{C}[1]{>{\Centering\arraybackslash\hspace{0pt}}p{#1}}}
+%    \newcolumntype{C}{>{\centering\arraybackslash}X}
+}
+%

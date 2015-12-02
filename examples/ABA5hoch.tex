@@ -1,0 +1,25 @@
+\documentclass[a5paper]{ksab}
+
+\title{Ein AB in A5 Hochformat}
+
+\ohead*{Beispiele \texttt{ksab}}
+\ihead{\LaTeX}
+
+\begin{document}
+  \maketitle
+  
+  Arbeitsblattumgebung in der Standardgröße DIN A5 mit breitem Rand links für Lochung.\\
+  Eingebunden mit:
+  \begin{verbatim}
+    \documentclass[a5paper]{ksab}
+  \end{verbatim}
+  
+  Die Kopfzeilen werden mit folgenden Kommandos erzeugt:
+  \begin{verbatim}
+    \ohead*{Beispiele \texttt{ksab}}
+    \ihead{\LaTeX}
+  \end{verbatim}
+  
+  \section{Blindtext}
+  \blindtext
+\end{document}

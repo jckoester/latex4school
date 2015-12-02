@@ -1,0 +1,37 @@
+% Description: Support for graphics in LaTeX
+\usepackage[%
+  %final,
+  %draft % do not include images (faster)
+]{graphicx}
+
+%% Description: provides new floats and enables H float modifier option
+%%             (in future incompatible with Koma Script)
+%% Doc: float.pdf
+%% ---> replaced by floatrow package!
+% \usepackage{float} 
+
+% Description: enables typesetting a narrow float at the edge of the text,
+%              and making the text wrap around it. 
+% load after: float
+% load before: caption
+% Provides: wrapfigure and wrapfloat
+% Doc: wrapfig-doc.pdf
+\usepackage{wrapfig}   
+
+% Description: place floats after the reference
+% Doc: no documentation
+\usepackage{flafter}
+
+% Description: Defines a \FloatBarrier command, beyond which floats may not
+%              pass; useful, for example, to ensure all floats for a section
+%              appear before the next \section command.
+% Doc: placeins-doc.pdf
+\usepackage[
+  section    % "\section" command will be redefined with "\FloatBarrier"
+]{placeins}
+%
+
+%% Description: Floating figures as in wrapfloat
+%%              (old LaTeX2e package from 1996)
+%% Doc: floatflt.pdf
+% \usepackage{floatflt}

@@ -1,0 +1,153 @@
+% eigene Commands 
+
+% Rahmenumgebungen (für Skripte)
+% --| Merkkasten | ---------------------------------------------------
+\mdfdefinestyle{merkestyle}{%
+  linecolor=red, innerlinewidth=2pt, outerlinewidth=1pt,%
+  middlelinecolor=white, middlelinewidth=4pt,%
+  hidealllines=true, leftline=true,%
+  backgroundcolor=verylightgray,%
+  innertopmargin=\topskip, innerbottommargin=\topskip,%
+  %skipbelow=0%
+}
+
+\newmdenv[style=merkestyle]{merke}
+\mdtheorem[style=merkestyle]{merketitled}{}
+
+% --| Experiment | ---------------------------------------------------
+
+% Liste der Experimente:
+\newcommand{\listexpname}{Liste der Versuche}
+\newlistof[chapter]{experiment}{exp}{\listexpname}
+% Liste der GFS-Themen
+\newcommand{\listgfsname}{Liste der GFS-Themen}
+\newlistof[chapter]{gfscount}{gfs}{\listgfsname}
+
+% Styles für Experimentumgebungen, sollten vielleicht besser nach -> styles/
+\mdfdefinestyle{expstyle_lv}{%
+  frametitle=true,frametitlebackgroundcolor=verylightgray, frametitlerule=true, frametitlerulecolor=darkgray,%
+  frametitleaboveskip=2pt,frametitlebelowskip=0pt,frametitlefont=\sffamily,%
+  linecolor=orange, innerlinewidth=2pt, outerlinewidth=1pt,%
+  middlelinecolor=white, middlelinewidth=4pt,%
+  hidealllines=true, leftline=true, %  
+}
+
+\mdfdefinestyle{expstyle_sv}{%
+  frametitleaboveskip=2pt,frametitlebelowskip=0pt,frametitlefont=\sffamily,%
+  frametitle=true,frametitlebackgroundcolor=verylightgray, frametitlerule=true, frametitlerulecolor=darkgray,%
+  linecolor=cyan, innerlinewidth=2pt, outerlinewidth=1pt,%
+  middlelinecolor=white, middlelinewidth=4pt,%
+  hidealllines=true, leftline=true, %
+}
+
+% Für theoretische Versuche
+\mdfdefinestyle{expstyle_tv}{%
+  frametitleaboveskip=2pt,frametitlebelowskip=0pt,frametitlefont=\sffamily,%
+  frametitle=true,frametitlebackgroundcolor=verylightgray, frametitlerule=true, frametitlerulecolor=darkgray,%
+  linecolor=red, innerlinewidth=2pt, outerlinewidth=1pt,%
+  middlelinecolor=white, middlelinewidth=4pt,%
+  hidealllines=true, leftline=true, %
+}
+
+\newtheoremstyle{exp}%
+  {}{}%
+  {}{}%
+  {\bfseries}{}%  % Note that final punctuation is omitted.
+  {\newline}{}
+  
+\newtheoremstyle{script}
+  {}{}%
+  {}{}%
+  {\bfseries}{}%  % Note that final punctuation is omitted.
+  {\newline}{\thmname{#1}\thmnumber{ #2}:\thmnote{ #3}}
+
+% Zähler für Versuche: 
+\newcounter{exp}[section]
+% Umgebung für Lehrerversuche:
+\newenvironment{experiment}[2][]{%
+  \stepcounter{exp}%
+   \def\expcolor{gray!40}
+   \def\theoretical{}
+   \def\lv{lv}\def\sv{sv}\def\tv{tv}
+   \def\test{#1}
+   % Falls LV
+   \ifx\test\lv
+      \def\expcolor{orange!40}
+   \fi
+   % Falls SV
+   \ifx\test\sv
+      \def\expcolor{blue!40}
+   \fi
+   % Falls TV
+   \ifx\test\tv
+      \def\expcolor{red!40}
+      \def\theoretical{~(theoretisch)}
+   \fi
+     \ifstrempty{#2}%
+      {
+          \mdfsetup{%
+        frametitle={%
+          \tikz[baseline=(current bounding box.east), outer sep=0pt]
+          \node[anchor=east,rectangle,fill=\expcolor]
+          {\strut \sffamily V\textsubscript{\thelv}};}
+        }%
+      }%
+      {
+        \mdfsetup{%
+        frametitle={%
+          \tikz[baseline=(current bounding box.east),outer sep=0pt]
+          \node[anchor=east,rectangle,fill=\expcolor]
+          {
+          \strut \normalfont\sffamily V\textsubscript{\theexp}:~#2\theoretical
+          };
+          }
+        }%
+      }%
+    \mdfsetup{innertopmargin=0pt,linecolor=\expcolor,%
+      linewidth=2pt,topline=true, frametitleaboveskip=\dimexpr-\ht\strutbox\relax,
+      }
+    \begin{mdframed}[]\relax%
+    }{\end{mdframed}}
+
+% Framed theorem environment für Lehrerversuche
+% \mdtheorem[style=expstyle_lv]{lv}{V\refstepcounter{experiment}\addcontentsline{exp}{experiment}{\textbf{LV \protect{\numberline{\theexperiment}}:} #1}}
+% Framed theorem environment für Schülerversuche
+% \mdtheorem[style=expstyle_sv]{sv}{V\refstepcounter{experiment}\addcontentsline{exp}{experiment}{\textbf{SV \protect{\numberline{\theexperiment}}:} #1}}
+% Framed theorem environment für Theorieversuche
+% \mdtheorem[style=expstyle_tv]{tv}{V\refstepcounter{experiment} (theoretisch) \addcontentsline{exp}{experiment}{\textbf{TV \protect{\numberline{\theexperiment}}:} #1}}
+
+
+\mdtheorem[style=gfsstyle]{gfs}{GFS-Thema\refstepcounter{gfscount}\addcontentsline{gfs}{gfscount}{\textbf{GFS \protect{\numberline{\thegfscount}}:} #1}}
+
+% Theorem environments für Durchführung, Beobachtung, Erklärung
+\theoremstyle{exp}
+\newtheorem*{expdf}{Df:}
+\newtheorem*{expbe}{B:}
+\newtheorem*{exper}{E:}
+% Umgebung für Impulse und Arbeitsaufträge
+\newenvironment{auftrag}[1][]{%
+     \ifstrempty{#1}%
+      {
+          \mdfsetup{%
+        frametitle={%
+          \tikz[baseline=(current bounding box.east), outer sep=0pt]
+          \node[anchor=east,rectangle,fill=gray!40]
+          {\strut \sffamily};}
+        }%
+      }%
+      {
+        \mdfsetup{%
+        frametitle={%
+          \tikz[baseline=(current bounding box.east),outer sep=0pt]
+          \node[anchor=east,rectangle,fill=gray!40]
+          {
+          \strut \normalfont\sffamily #1:
+          };
+          }
+        }%
+      }%
+    \mdfsetup{innertopmargin=0pt,linecolor=gray!40,%
+      linewidth=2pt,topline=true, frametitleaboveskip=\dimexpr-\ht\strutbox\relax,
+      }
+    \begin{mdframed}[]\relax%
+    }{\end{mdframed}}

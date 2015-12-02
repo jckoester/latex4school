@@ -1,0 +1,33 @@
+% Packages Layout
+% Veranschaulichung des aktuellen Layouts
+\usepackage{layouts}
+\usepackage{layout}
+
+% Blindtexte
+\usepackage{blindtext}
+
+% Titel-Kommando ändern (KOMA-verträglich)
+\usepackage{titling}
+
+% Kopf- und Fußzeile
+\setkomafont{pageheadfoot}{\normalfont}
+\usepackage[autooneside=true]{scrlayer-scrpage}
+\pagestyle{scrheadings}
+\KOMAoptions{
+%   headtopline=0.5pt,
+  headsepline=0.5pt,
+  footsepline=0.5pt,
+  %   footbotline=0.5pt,
+  footheight=18pt,
+  headheight=18pt,
+  plainfootsepline=true
+}
+
+% Mehrspaltiger Textsatz TODO: evtl. in generl-text umziehen
+\usepackage{multicol}
+\usepackage{ragged2e} % Description:  environments for setting ragged text 
+%               which allow hyphenation.
+% Provides: \Centering, \RaggedLeft, and \RaggedRight, ... 
+
+% einzelne Seiten im Querformat
+\usepackage{lscape}

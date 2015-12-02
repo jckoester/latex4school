@@ -1,0 +1,192 @@
+% Description: Include pages from external PDF documents in LaTeX documents
+% Doc: pdfpages.pdf
+%\usepackage{pdfpages} 
+
+% Description: landscape orientation in PDF Format
+% Doc: pdflscape.pdf
+% load after: footmisc (correct ?)
+%\usepackage{pdflscape}
+
+% Description: The microtype package provides a LaTeX interface to the  
+%              micro-typographic extensions of pdfTEX: most prominently,
+%              character protrusion and font expansion, furthermore
+%              the adjustment of interword spacing and additional kerning.
+% Provides:    Much better textformating and better typography, 
+%              but at the cost of a much larger PDF file.
+% Doc: microtype.pdf
+\ifpdf
+\usepackage{microtype}
+\fi
+
+% Description: add hyperlink support to LaTeX
+% load: after almost every package!
+% Doc: manual.pdf
+\usepackage[
+%%% Extension options
+  ,backref=page       % Adds backlink text to the end of each item in the
+                      % bibliography, as a list of section numbers.
+                      % (section, slide, page, none)
+  ,pagebackref=false  % Adds backlink text to the end of each item in the
+                      % bibliography, as a list of page numbers.
+  ,hyperindex=true    % Makes the page numbers of index entries into
+                      % hyperlinks.
+  ,hyperfootnotes=false % Makes the footnote marks into hyperlinks to the
+                        % footnote text (must be false if footmisc is loaded).
+%%% PDF-specific display options
+  ,bookmarks=true
+%%% PDF display and information options  
+  ,pdfpagelabels=true % set PDF page labels
+]{hyperref}
+
+% Description: This package implements a new bookmark (outline) organization
+%              for package  hyperref. In contrast to hyperref here only one 
+%              LaTeX run is required.
+% load: after hyperref
+% Doc: bookmark.pdf
+\IfNotDraft{%
+  \usepackage{bookmark}
+}
+\IfPackageLoaded{hyperref}{
+%TODO: Alles nötig?
+\hypersetup{
+%%% General options
+  ,draft=false, % all hypertext options are turned off
+  ,final=true   % all hypertext options are turned on
+  ,debug=false  % extra diagnostic messages are printed in the log file
+  ,hypertexnames=true % use guessable names for links
+  ,naturalnames=false % use LaTeX-computed names for links
+  ,setpagesize=true   % sets page size by special driver commands
+%%% Configuration options
+  ,raiselinks=true    % forces commands to reflect the
+                      % real height of the link 
+  ,breaklinks=true    % Allows link text to break across lines
+  ,pageanchor=true    % Determines whether every page is given an implicit
+                      % anchor at the top left corner. 
+  ,plainpages=false   % Forces page anchors to be named by the arabic
+                      % form of the page number, rather than the formatted form.
+%%% Extension options
+  ,linktocpage=true   % make page number, not text, be link on TOC, LOF and LOT
+  ,colorlinks=true    % Colors the text of links and anchors.
+}%
+\IfColorDefined{pdflinkcolor}{\hypersetup{%
+%%% Colors for links
+  ,linkcolor  =pdflinkcolor   % Color for normal internal links.
+  ,anchorcolor=pdfanchorcolor % Color for anchor text.
+  ,citecolor  =pdfcitecolor   % Color for bibliographical citations in text.
+  ,filecolor  =pdffilecolor   % Color for URLs which open local files.
+  ,menucolor  =pdfmenucolor   % Color for Acrobat menu items.
+  ,runcolor   =pdfruncolor    % Color for run links (launch annotations).
+  ,urlcolor   =pdfurlcolor    % color magenta Color for linked URLs.
+}}{}
+\hypersetup{%
+%%% PDF-specific display options
+  ,bookmarksopen=true     % If Acrobat bookmarks are requested, show them
+                          % with all the subtrees expanded.
+  ,bookmarksopenlevel=2   % level (\maxdimen) to which bookmarks are open
+  ,bookmarksnumbered=true %
+  ,bookmarkstype=toc      %
+%%% PDF display and information options
+  ,pdfpagemode=UseOutlines % Determines how the file is opening in Acrobat:
+                          %  UseNone, UseThumbs (show thumbnails),
+                          %  UseOutlines (show bookmarks), FullScreen,
+                          %  UseOC (PDF 1.5), and UseAttachments (PDF 1.6).
+                          %
+  ,pdfstartpage=1         % Determines on which page the PDF file is opened.
+  ,pdfstartview=FitV      % Set the startup page view
+  % options: (same for pdfview, pdfremotestartview)
+  %  Fit   Fits the page to the window.
+  %  FitH  Fits the width of the page to the window.
+  %  FitV  Fits the height of the page to the window.
+  %  FitB  Fits the page bounding box to the window.
+  %  FitBH Fits the width of the page bounding box to  the window.
+  %  FitBV Fits the height of the page bounding box to the window.
+  ,pdfremotestartview=Fit % Set the startup page view of remote PDF files
+  ,pdfcenterwindow=false  %
+  ,pdffitwindow=false     % resize document window to fit document size
+  ,pdfnewwindow=false     % make links that open another PDF file 
+                          % start a new window
+  % options:
+  %  SinglePage     Displays a single page; advancing flips the page
+  %  OneColumn      Displays the document in one column; continuous scrolling.
+  %  TwoColumnLeft  Displays the document in two columns, 
+  %                 odd-numbered pages to the left.
+  %  TwoColumnRight Displays the document in two columns, 
+  %                 odd-numbered pages to the right.
+  %  TwoPageLeft    Displays two pages, odd-numbered pages to the left 
+  %  TwoPageRight   Displays two pages, odd-numbered pages to the right 
+  %
+  ,pdfdisplaydoctitle=true  % display document title instead of file name 
+} % end: hypersetup
+
+} % end: IfPackageLoaded{hyperref}
+%\input{preamble/style-hyperref.tex}
+
+\IfPackageLoaded{bookmark}{
+   \bookmarksetup{%
+   %%% Action options
+      ,page=1    % 
+      %,view     %
+      ,open=true %
+      ,openlevel=2 % level to which bookmarks are open
+      ,depth=4   % level to which bookmarks are generated
+      ,numbered=true
+   }%
+}
+
+%% disable compression of images in pdf
+% \ifpdf
+%    \pdfcompresslevel=0
+% \fi
+
+% TODO: Ist das alles nötig?
+% Make figure and not only the number to a link
+\IfPackageLoaded{babel}{
+  % if babel loaded not necessary
+  %\providecommand*{\figurename}{Abbildung}
+  %\providecommand*{\tablename}{Tabelle}
+  %\providecommand*{\chaptername}{Kapitel}
+  % not defined by babel
+  \iflanguage{ngerman}{%
+    \providecommand*{\secrefname}{Abschnitt}%
+    \providecommand*{\eqnrefname}{Gleichung}%
+  }{}%
+  \iflanguage{english}{%
+    \providecommand*{\secrefname}{section}%
+    \providecommand*{\eqnrefname}{equation}%
+  }{}%
+  %
+  \IfElsePackageLoaded{hyperref}{
+    \newcommand*{\eqnref}[1]{%
+        \hyperref[{#1}]{\eqnrefname~(\ref*{#1}})%
+    }%
+    \newcommand*{\figref}[1]{%
+      \hyperref[{#1}]{\figurename~\ref*{#1}}%
+    }%
+    \newcommand*{\tabref}[1]{%
+      \hyperref[{#1}]{\tablename~\ref*{#1}}%
+    }%
+    \newcommand*{\secref}[1]{%
+      \hyperref[{#1}]{\secrefname~\ref*{#1}}%
+    }%
+    \newcommand*{\chapref}[1]{%
+      \hyperref[{#1}]{\chaptername~\ref*{#1}}%
+    }%
+  }{% hyperref not loaded
+    \newcommand*{\eqnref}[1]{%
+      \eqnrefname~(\ref*{#1})%
+    }%
+    \newcommand*{\figref}[1]{%
+      \figurename~\ref*{#1}%
+    }%
+    \newcommand*{\tabref}[1]{%
+      \tablename~\ref*{#1}%
+    }%
+    \newcommand*{\secref}[1]{%
+      \secrefname~\ref*{#1}%
+    }%
+    \newcommand*{\chapref}[1]{%
+      \chaptername~\ref*{#1}%
+    }%
+  }% end: hyperref not loaded
+}% \IfPackageLoaded{babel}
+%\input{preamble/style-references.tex}

@@ -1,0 +1,11 @@
+% Description: defines new environments where the user may choose 
+%              between several individual designs.
+% Doc: mdframed-doc-en.pdf
+\@ifpackageloaded{tikz}{%
+  \usepackage{mdframed}
+}{
+  \usepackage[framemethod=TikZ]{mdframed}
+}
+
+\usepackage{framed}
+\usepackage{amsthm}

@@ -1,0 +1,27 @@
+\documentclass[a4paper]{ksab}
+
+\title{Ein AB in A4 Hochformat}
+
+\ohead*{Beispiele \texttt{ksab}}
+\ihead{\LaTeX}
+
+\begin{document}
+  \maketitle
+  
+  Arbeitsblattumgebung in der Standardgröße DIN A4 mit breitem Rand links für Lochung.\\
+  Eingebunden mit:
+  \begin{verbatim}
+    \documentclass[a4paper]{ksab}
+  \end{verbatim}
+  
+  Die Kopfzeilen werden mit folgenden Kommandos erzeugt:
+  \begin{verbatim}
+    \ohead*{Beispiele \texttt{ksab}}
+    \ihead{\LaTeX}
+  \end{verbatim}
+  
+  \section{Blindtext}
+  
+  \blindtext[4]
+
+\end{document}

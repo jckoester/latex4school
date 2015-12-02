@@ -1,0 +1,9 @@
+# Fdb version 3
+["pdflatex"] 1447845344 "chem.tex" "chem.pdf" "chem" 1447845344
+  "/usr/share/texmf-dist/web2c/texmf.cnf" 1447534201 31669 df537245012f3e5f05bdc55644b7a3df ""
+  "/var/lib/texmf/web2c/pdftex/pdflatex.fmt" 1447827061 7214064 693c6764f2cb27b30f066bc1c1611622 ""
+  "chem.aux" 1447845344 8 a94a2480d3289e625eea47cd1b285758 ""
+  "chem.tex" 1447845344 883 2f3e441e958f1b02f1334864f06d9362 ""
+  (generated)
+  "chem.pdf"
+  "chem.log"

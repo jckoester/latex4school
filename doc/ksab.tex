@@ -1,0 +1,56 @@
+\documentclass[a4paper]{ksab}
+
+\title{\texttt{ksab} - eine Klasse zur Erstellung von Arbeitsblättern}
+
+\ohead*{Dokumentation \texttt{ksab}}
+\ihead{\LaTeX}
+
+\begin{document}
+  \maketitle
+  
+  Eine \LaTeX-Klasse zur Erstellung von Arbeitsblättern.
+  
+  \section{Optionen}
+  \texttt{kasab} kennt die folgenden Optionen:
+  \begin{enumerate}
+    \item \texttt{a4paper} erzeugt ein Arbeitsblatt in Format DIN A4 mit breitem Rand links für Lochung.
+    \item \texttt{a5paper} erzeugt ein Arbeitsblatt in Format DIN A5 mit breitem Rand links für Lochung.
+    \item \texttt{a6paper} erzeugt ein Arbeitsblatt in Format DIN A6 \textbf{ohne} breiten Rand für Lochung, gedacht für Hilfekärtchen o.ä.
+    \item \texttt{landscape} ändert die Orientierung das ABs ins Querformat. Arbeitsblätter im Format DIN A4 quer haben den breiten Rand für Lochung oben.  Arbeitsblätter im Format DIN A5 quer haben den breiten Rand für Lochung links.
+    \item \texttt{tikz} Lädt Pakete und Stile für die TikZ-Umgebung
+    \item \texttt{chem} Lädt Pakete und Stile mit Chemie-Bezug. 
+  \end{enumerate}
+  
+  \section{Beispiel}
+  Der Standardfall: A4 im Hochformat:
+  \begin{verbatim}
+    \documentclass[a4paper]{ksab}
+
+    \title{Ein AB in A4 Hochformat}
+
+    \ohead*{Beispiele \texttt{ksab}}
+    \ihead{\LaTeX}
+
+    \begin{document}
+    \maketitle
+  
+    Arbeitsblattumgebung in der Standardgröße DIN A4 mit breitem Rand links für Lochung.
+  
+    \section{Blindtext}
+  
+    \blindtext[4]
+
+    \end{document}
+  \end{verbatim}
+  
+  Weitere Beispiele finden sich im Ordner \href{~/../examples}{examples}:
+  \begin{itemize}
+    \item DIN A4 hoch \href{../examples/ABA4hoch.tex}{tex} $\mid$ \href{../examples/ABA4hoch.pdf}{pdf}
+    \item DIN A4 quer \href{../examples/ABA4quer.tex}{tex} $\mid$ \href{../examples/ABA4quer.pdf}{pdf}
+    \item DIN A5 hoch \href{../examples/ABA5hoch.tex}{tex} $\mid$ \href{../examples/ABA5hoch.pdf}{pdf}
+    \item DIN A5 quer \href{../examples/ABA5quer.tex}{tex} $\mid$ \href{../examples/ABA5quer.pdf}{pdf}
+    \item DIN A6 hoch \href{../examples/ABA6hoch.tex}{tex} $\mid$ \href{../examples/ABA6hoch.pdf}{pdf}
+    \item DIN A6 quer \href{../examples/ABA6quer.tex}{tex} $\mid$ \href{../examples/ABA6quer.pdf}{pdf}
+  \end{itemize}
+
+\end{document}
