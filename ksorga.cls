@@ -147,3 +147,6 @@
 \cfoot{}
 \ifoot{}
 \ofoot{Ks}
+
+% Linie für Ablagestruktur
+\newcommand{\lkrule}[0]{\arrayrulecolor{red}\specialrule{.1em}{.0em}{.0em}\arrayrulecolor{black}}

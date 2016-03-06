@@ -11,8 +11,8 @@
   %skipbelow=0%
 }
 
-\newmdenv[style=merkestyle]{merke}
-\mdtheorem[style=merkestyle]{merketitled}{}
+%\newmdenv[style=merkestyle]{merke}
+%\mdtheorem[style=merkestyle]{merketitled}{}
 
 % --| Experiment | ---------------------------------------------------
 
@@ -147,6 +147,34 @@
         }%
       }%
     \mdfsetup{innertopmargin=0pt,linecolor=gray!40,%
+      linewidth=2pt,topline=true, frametitleaboveskip=\dimexpr-\ht\strutbox\relax,
+      }
+    \begin{mdframed}[]\relax%
+    }{\end{mdframed}}
+    
+% Umgebung für Merkkästen
+\newenvironment{merke}[1][]{%
+     \ifstrempty{#1}%
+      {
+          \mdfsetup{%
+        frametitle={%
+          \tikz[baseline=(current bounding box.east), outer sep=0pt]
+          \node[anchor=east,rectangle,fill=red!40]
+          {\strut \sffamily};}
+        }%
+      }%
+      {
+        \mdfsetup{%
+        frametitle={%
+          \tikz[baseline=(current bounding box.east),outer sep=0pt]
+          \node[anchor=east,rectangle,fill=red!40]
+          {
+          \strut \normalfont\sffamily #1:
+          };
+          }
+        }%
+      }%
+    \mdfsetup{innertopmargin=0pt,linecolor=red!40,%
       linewidth=2pt,topline=true, frametitleaboveskip=\dimexpr-\ht\strutbox\relax,
       }
     \begin{mdframed}[]\relax%
