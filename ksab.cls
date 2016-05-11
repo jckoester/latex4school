@@ -129,6 +129,8 @@
 \usepackage{codesection}
 \usepackage{templatetools}
 
+
+
 % Encoding und Sprache
 \input{inc/general-encoding.tex}
 % Schrift und Fonts
@@ -156,6 +158,12 @@
 \input{inc/general-frames.tex}
 % PDF Goodies
 \input{inc/general-pdf.tex}
+
+% Exercisesheets:
+%TODO: move to seperate class and configure
+% \let\vary\relax
+\RequirePackage[load-headings]{exsheets}
+
 
 % Mathematik
 \input{inc/maths.tex}
