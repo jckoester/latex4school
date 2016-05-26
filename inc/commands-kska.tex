@@ -1,0 +1,24 @@
+% eigene Commands 
+
+% Linie für Namen
+\newcommand{\nameline}{ %
+  \vspace*{0.1cm}
+  \hfill\makebox[10.4cm]{Name:\enspace\hrulefill\\}
+  }
+  
+% Selbsteinschätzung mündliche Note
+% TODO: Skala von 1-6 vorgeben, zum Ankreuzen
+\newcommand{\selfeval}{ %
+  \vspace*{0.1cm}
+  \hfill\makebox[12.4cm]{Welche Unterrichtsnote würdest du dir selber geben?\enspace\hrulefill\\}
+  }
+% Kasten für Punktsumme und Note
+% TODO: Unterrichtsnote als Option
+\newcommand{\markingbox}{ %
+  \begin{framed}
+  \vspace*{0.25cm}
+  \hspace*{5cm} Unterrichtsnote: \hrulefill\\[2em]
+  \makebox[5cm]{\hrulefill} von \totalpoints* Punkten \qquad Note: \hrulefill\\
+  \end{framed}
+  \vspace*{-0.5cm}
+}

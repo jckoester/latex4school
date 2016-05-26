@@ -1,0 +1,145 @@
+\documentclass[chem]{kska}
+\title{Klassenarbeit Nr. TEST}
+
+\ihead*{Klasse 1T}
+\chead{\thetitle}
+\ohead*{01.01.1970}
+
+% TODO
+% Varianten (A<->B) testen mit \variant
+
+% OPTIONAL
+% Ein Notenschlüssel, leider muss man für jede Note den prozentualen Anteil angeben...
+% TODO In eine Funktion packen und mehrere Varianten ablegen.
+% TODO Mit Punkten für Kursstufe testen
+\DeclareRelGrades{
+1       = 0.9506999996 ,
+{1,25}  = 0.911533333 ,
+{1,5}   = 0.8723666663 ,
+{1,75}  =	0.8331999996 ,
+2       = 0.794033333 ,
+{2,25}	= 0.7548666663 ,
+{2,5}   =	0.7156999996 ,
+{2,75}	= 0.676533333 ,
+3       = 0.6373666663 ,
+{3,25}  =	0.5981999996 ,
+{3,5}   =	0.559033333 ,
+{3,75}  =	0.5198666663 ,
+4       = 0.4806999996 ,
+{4,25}	= 0.441533333 ,
+{4,5}   =	0.4023666663 ,
+{4,75}	= 0.3631999996 ,
+5       =	0.324033333 ,
+{5,25}  = 0.2848666663 ,
+{5,5}   =	0.2456999996 ,
+{5,75}  =	0.206533333 ,
+6   =	0.1673666663
+}
+
+
+\begin{document}
+  % Die Linie für den Namen
+  \nameline
+  
+  \begin{framed}\noindent Lies dir die Aufgaben \emph{genau} durch bevor du mit der Beantwortung
+beginnst! Stelle deine Antworten sauber und übersichtlich dar.\\
+Strukturformeln müssen nur angegeben werden, wenn dies in der
+Aufgabestellung ausdrücklich verlangt wird.
+\end{framed}
+
+
+  \begin{question}[subtitle=Wiederholungsaufgabe]{2}
+    Berechne.
+    \begin{tasks}(3)
+      \task $1 + 1$
+      \task $1 \cdot 1$
+      \task $1 : 1$
+    \end{tasks}
+  \end{question}
+  \begin{solution}
+    \begin{tasks}(3)
+      \task $1 + 1 = 2$
+      \task $1 \cdot 1 = 1$
+      \task $1 : 1 = 1$
+    \end{tasks}
+  \end{solution}
+  
+  
+  \begin{question}{4}
+    \begin{tasks}(1)
+      \task  Eine Teilaufgabe mit einem Punkt. (\points{1})
+      \task  Eine Teilaufgabe mit drei Punkten. (\points{3})
+    \end{tasks}
+  \end{question}
+  \begin{solution}
+      \begin{tasks}(1)
+      \task  Eine Teilaufgabe mit einem Punkt. (\points{1})\\
+        \itshape{Diese Aufgabe hat eine kurze Lösung.}
+      \task  Eine Teilaufgabe mit drei Punkten. (\points{3})\\
+        \itshape{Bei drei Punkten muss man schon etwas mehr schreiben. Aber nur etwas.}
+    \end{tasks}
+  \end{solution}
+  
+  
+  \begin{question}[skip-below=3cm]{2}
+  Eine Aufgabe mit \SI{3}{\centi\meter} Platz darunter, um die Antwort(en) eintragen zu können.
+  \end{question}
+  \begin{solution}
+    \itshape{Schreib doch was du willst.}
+  \end{solution}
+  
+  \begin{question}
+    Vervollständige folgende Reaktionsgleichung:
+    \begin{reaction*}
+      \qquad CH4 + \qquad O2 -> \qquad CO2 + \qquad H2O
+    \end{reaction*}
+  \end{question}
+  \begin{solution}
+    Vervollständige folgende Reaktionsgleichung:
+    \begin{reaction*}
+      1 CH4 + 2 O2 -> 1 CO2 + 2 H2O
+    \end{reaction*}
+  \end{solution}
+
+  % Vertikalen Raum auffüllen, so dass die Box für die Note unten steht
+  \vfill
+  
+  % Selbsteinschätzung Unterrichtsnote
+  \selfeval
+  % Box für Note(n)
+  \markingbox
+  
+  \newpage
+  
+  \title{Lösungen}
+  \maketitle
+  % Gibt die oben definierten Lösungen aus
+  \printsolutions
+  
+  \vfill
+  
+  % OPTIONAL
+  \section*{Notenschlüssel}
+  \footnotesize\setlength\tabcolsep{2pt}
+  \begin{tabularx}{\linewidth}{|r|*{21}{Z|}}
+  \toprule
+  Punkte
+  & $\grade*{1}$ & $\grade*{1,25}$ & $\grade*{1,5}$ & $\grade*{1,75}$
+  & $\grade*{2}$ & $\grade*{2,25}$ & $\grade*{2,5}$ & $\grade*{2,75}$
+  & $\grade*{3}$ & $\grade*{3,25}$ & $\grade*{3,5}$ & $\grade*{3,75}$
+  & $\grade*{4}$ & $\grade*{4,25}$ & $\grade*{4,5}$ & $\grade*{4,75}$
+  & $\grade*{5}$ & $\grade*{5,25}$ & $\grade*{5,5}$ & $\grade*{5,75}$
+  & $\grade*{6}$ \\
+  \midrule
+  Note
+  & 1 & 1-- & 1--2 & 2+ 
+  & 2 & 2-- & 2--3 & 3+
+  & 3 & 3-- & 3--4 & 4+
+  & 4 & 4-- & 4--5 & 5+
+  & 5 & 5-- & 5--6 & 6+
+  & 6 \\
+  \bottomrule
+  \end{tabularx}
+  
+  
+\end{document}
