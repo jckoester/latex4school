@@ -17,7 +17,7 @@
 \usepackage{endiagram}
 % 
 % \EndCodeSection{PackagesChem}
-
+\ghssetup{language=german}
 % style setup of chemfig
 % Für numerierte Atome
 \definesubmol\nobond{[,0.2,,,draw=none]}
@@ -29,3 +29,7 @@
 
 \DeclareTranslation{german}{phase-sld}{s}
 \DeclareTranslation{german}{phase-lqd}{l}
+
+% Define multiple aligned reactions:
+\NewChemReaction{reactionsat}[1]{alignat}
+\NewChemReaction{reactionsat*}[1]{alignat*}
