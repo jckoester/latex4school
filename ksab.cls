@@ -163,6 +163,10 @@
 %TODO: move to seperate class and configure
 % \let\vary\relax
 \RequirePackage[load-headings]{exsheets}
+\SetupExSheets{
+  totoc ,
+  headings = block-rev
+}
 
 
 % Mathematik

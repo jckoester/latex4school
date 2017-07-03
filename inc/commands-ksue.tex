@@ -138,6 +138,12 @@
 \newtheorem*{expdf}{Df:}
 \newtheorem*{expbe}{B:}
 \newtheorem*{exper}{E:}
+% Command for experiment footer, usful to add links to worksheet and GBU
+\newcommand\expref[2]{
+  \begin{tabularx}{\linewidth}{Xr}
+    #1 & #2
+  \end{tabularx}
+}
 % Umgebung für Impulse und Arbeitsaufträge
 \newenvironment{auftrag}[1][]{%
      \ifstrempty{#1}%

@@ -153,7 +153,7 @@
 % Chemie
 %\input{inc/chem.tex} % Als Option oben erledigt
 % Symbole
-% \input{inc/general-symbols.tex}
+ \input{inc/general-symbols.tex}
 
 
 \if@chem%
