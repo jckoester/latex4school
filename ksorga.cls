@@ -82,6 +82,8 @@
 \input{inc/general-quote-cite.tex}
 % PDF Goodies
 \input{inc/general-pdf.tex}
+% General mathematic packages
+\input{inc/general-maths.tex}
 
 % Mathematik
 \input{inc/maths.tex}

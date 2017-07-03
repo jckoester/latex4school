@@ -131,24 +131,26 @@
 
 
 
-% Encoding und Sprache
+% Encoding and Language
 \input{inc/general-encoding.tex}
-% Schrift und Fonts
+% Fonts
 \input{inc/general-fonts.tex}
-% Allgemeines und Pakete für das Layout
+% General layout packages
 \input{inc/general-layout.tex}
-% Farben
+% Colours
 \input{inc/general-colors.tex}
-% Tabellen
+% Tables
 \input{inc/general-table.tex}
-% Grafiken
+% Graphics
 \input{inc/general-figures.tex}
 % Captions
 \input{inc/general-captions.tex}
-% Fußnoten
+% Footnotes
 \input{inc/general-footnotes.tex}
-% Zitate
+% Citation
 \input{inc/general-quote-cite.tex}
+% General mathematic packages
+\input{inc/general-maths.tex}
 
 \if@tikz%
   \input{inc/tikz.tex}

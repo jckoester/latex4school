@@ -79,6 +79,8 @@
 \input{inc/general-pdf.tex}
 % Rahmen
 \input{inc/general-frames.tex}
+% General mathematic packages
+\input{inc/general-maths.tex}
 
 % Mathematik
 \input{inc/maths.tex}

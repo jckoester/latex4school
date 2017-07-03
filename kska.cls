@@ -120,6 +120,8 @@
 \input{inc/general-footnotes.tex}
 % Zitate
 \input{inc/general-quote-cite.tex}
+% General mathematic packages
+\input{inc/general-maths.tex}
 
 \if@tikz%
   \input{inc/tikz.tex}
