@@ -204,6 +204,8 @@
    headings=big, % Big Font Size, large spacing above and below
    numbers=noenddot %
 }%
+% Titel-Kommando ändern (KOMA-verträglich)
+\usepackage{titling}
 % Stil des Titels
 \renewcommand{\maketitle}{
   \noindent\Huge\textsf{\thetitle}\normalsize\newline

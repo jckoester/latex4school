@@ -181,6 +181,8 @@
    numbers=noenddot %
 }%
 % Stil des Titels
+% Titel-Kommando ändern (KOMA-verträglich)
+\usepackage{titling}
 \renewcommand{\maketitle}{
   \noindent\Huge\textsf{\thetitle}\normalsize\newline
 }
