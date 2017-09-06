@@ -28,10 +28,18 @@
 % Abstand der Atome
 \setatomsep{2em}
 % Oxidationszahlen
-\chemsetup{modules=all}
+\chemsetup{ modules = all }
 \chemsetup[redox]{explicit-sign=true}
 
 %Reaktionen
+% Temporary fix for chemmacros reactions environment until release v5.8b
+\ExplSyntaxOn
+\bool_if_exist:NF \l__chemmacros_hyperref_bool
+ {
+  \bool_new:N \l__chemmacros_hyperref_bool
+ }
+\ExplSyntaxOff
+
 %\chemsetup{modules=reactions}
 % Phasen (s,l,g,aq):
 \chemsetup[phases]{pos=sub}
