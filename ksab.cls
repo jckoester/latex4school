@@ -162,6 +162,7 @@
 \input{inc/general-pdf.tex}
 
 % Exercisesheets:
+\input{inc/general-exercises.tex}
 %TODO: move to seperate class and configure
 % \let\vary\relax
 % \RequirePackage[load-headings]{exsheets}
