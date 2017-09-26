@@ -78,8 +78,7 @@
 \input{inc/general-quote-cite.tex}
 % PDF Goodies
 \input{inc/general-pdf.tex}
-% Rahmen
-\input{inc/general-frames.tex}
+
 % General mathematic packages
 \input{inc/general-maths.tex}
 
@@ -99,6 +98,9 @@
 \if@tikz%
   \input{inc/tikz.tex}
 \fi
+
+% Rahmen
+\input{inc/general-frames.tex}
 %TODO: References
 
 % eigene Commands:

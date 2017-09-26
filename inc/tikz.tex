@@ -14,7 +14,7 @@
 }
 
 % TODO: Load libraries if needed
-\IfPackageLoaded{tikz}{%
+% \IfPackageLoaded{tikz}{%
 %%% Chapter numbers according to 
 %%% package version 2.10
 %
@@ -74,7 +74,7 @@
 %%% 40. Paper Folding Diagrams Library
 %\usetikzlibrary{folding}
 %%% 41. Pattern Library
-%\usetikzlibrary{patterns}
+\usetikzlibrary{patterns}
 %%% 42. Petri-Net Drawing Library
 %\usetikzlibrary{petri}
 %%% 43. Plot Handler Library (loaded autom.)
@@ -88,7 +88,7 @@
 % \usetikzlibrary{shadows}
 %%% 48. Shape Library
 % \usetikzlibrary{shapes.geometric}
-% \usetikzlibrary{shapes.symbols}
+\usetikzlibrary{shapes.symbols}
 % \usetikzlibrary{shapes.multipart}
 % \usetikzlibrary{shapes.callouts}
 % \usetikzlibrary{shapes.misc}
@@ -107,8 +107,10 @@
 
 % Smileys and other symbols:
 \usepackage{tikzsymbols}
-}
 
+% Rotate nodes and stuff
+\usepackage{rotating}
+% }
 
 
 
