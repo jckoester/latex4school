@@ -303,3 +303,8 @@
 \usepackage[german]{fancyref}
 \renewcommand{\fancyrefdefaultformat}{plain}
 \usepackage{cleveref}
+
+\newcommand*{\fancyrefexperimentlabelprefix}{exp}
+\frefformat{main}{\fancyrefexperimentlabelprefix}{Versuch~#1#2}
+\Frefformat{main}{\fancyrefexperimentlabelprefix}{Versuch~#1#2}
+\frefformat{plain}{\fancyrefexperimentlabelprefix}{Versuch~#1}

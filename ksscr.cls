@@ -202,7 +202,11 @@
 \usepackage{paralist}
 \setlength{\itemsep}{-2pt} % Abstand der items (funktioniert das überhaupt?)
 
+
 % Numerierungen
+% Auch Absätze brauchen Nummern, um korrekt referenziert werden zu können:
+% Oder auch nicht, denn 6.5.1.2.1 ist definitiv nicht schön!
+%  \setcounter{secnumdepth}{6}
 % \renewcommand\thepart{\arabic{part}}
 % \renewcommand{\theequation}{\thepart.\arabic{equation}}
 \renewcommand{\thereaction}{\thechapter.\arabic{reaction}}
