@@ -197,3 +197,6 @@
 \draw (-135:1.1mm) arc (110:30:0.9mm);
     }
 }
+
+\newcommand*\circled[1]{\tikz[baseline=(char.base)]{
+            \node[shape=circle,draw,inner sep=2pt, yshift=1pt] (char) {\tiny #1};}}
