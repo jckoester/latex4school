@@ -57,7 +57,11 @@
 \usepackage{codesection}
 \usepackage{templatetools}
 % Listen, Inhaltsverszeichnisse (nur ue und script)
-\usepackage{tocloft}
+%\usepackage{tocloft}
+
+% TEST
+\usepackage{scrextend}
+
 % Encoding und Sprache
 \input{inc/general-encoding.tex}
 % Schrift und Fonts
@@ -233,3 +237,5 @@
 % \cfoot{}
 %  \lofoot{\pagemark}
 % \ifoot{Ks}
+
+ \KOMAoption{listof}{leveldown}

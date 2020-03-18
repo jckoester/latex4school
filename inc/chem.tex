@@ -26,13 +26,15 @@
 % Für numerierte Atome
 \definesubmol\nobond{[,0.2,,,draw=none]}
 % Abstand der Atome
-\setatomsep{2em}
+\setchemfig{atom sep = 2em}
 % Oxidationszahlen
 \chemsetup{ modules = all }
 \chemsetup[redox]{explicit-sign=true}
 \chemsetup[redox]{explicit-zero-sign=true}
 \chemsetup[redox]{pos=top}
 
+\setchemfig{lewis dist = 0.5ex}
+\setchemfig{lewis length = 1ex}
 
 %Reaktionen
 % Temporary fix for chemmacros reactions environment until release v5.8b
@@ -51,3 +53,26 @@
 % Define multiple aligned reactions:
 \NewChemReaction{reactionsat}[1]{alignat}
 \NewChemReaction{reactionsat*}[1]{alignat*}
+% Symbol für Entropie
+\RenewChemState\entropy{  symbol = S, unit = \joule\per\kelvin\per\mole, pre =$\Delta$ }
+
+
+%% Submodules for Fischer formulas
+% Plain version with lewis electrons
+\definesubmol{rohe}{C(-[4]H)(-[0]\lewis{26,O}(-[0]H))}
+\definesubmol{lohe}{C(-[0]H)(-[4]\lewis{26,O}(-[4]H))}
+% and without
+\definesubmol{roh}{C(-[4]H)(-[0]OH)}
+\definesubmol{loh}{C(-[0]H)(-[4]HO)}
+
+% red versions
+\definesubmol{rohre}{\color{red}{C}(-[4]H)(-[0]\lewis{26,O}(-[0]H))}
+\definesubmol{lohre}{\color{red}{C}(-[0]H)(-[4]\lewis{26,O}(-[4]H))}
+\definesubmol{rohr}{\color{red}{C}(-[4]H)(-[0]OH)}
+\definesubmol{lohr}{\color{red}{C}(-[0]H)(-[4]HO)}
+
+% Stared versions for asymmetric C-Atoms
+\definesubmol{rohs}{C(-[1,0.45,,,draw=none]\color{rot}{\star})(-[4]H)(-[0]OH)}
+\definesubmol{lohs}{C(-[1,0.45,,,draw=none]\color{rot}{\star})(-[0]H)(-[4]HO)}
+\definesubmol{rohsr}{\color{rot}{C}(-[1,0.45,,,draw=none]\color{rot}{\star})(-[4]H)(-[0]OH)}
+\definesubmol{lohsr}{\color{rot}{C}(-[1,0.45,,,draw=none]\color{rot}{\star})(-[0]H)(-[4]HO)}

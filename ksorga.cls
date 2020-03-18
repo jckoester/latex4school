@@ -154,3 +154,89 @@
 
 % Linie für Ablagestruktur
 \newcommand{\lkrule}[0]{\arrayrulecolor{red}\specialrule{.1em}{.0em}{.0em}\arrayrulecolor{black}}
+
+% Commands für Kalender:
+\usepackage{termcal-de}
+% Sollte evtl. in Extradatei und per Option eingebunden werden.
+
+% Several fixes for bugs in the class
+%(https://tex.stackexchange.com/a/417396)
+\makeatletter
+\renewcommand\ca@doaday[1]{% Added here
+\hbox{\vrule depth \calboxdepth height 0pt width 0pt\vtop{%  
+   #1%                                 %options specified by |\calday|
+   \csname\curdate options\endcsname%  % options specified by date
+   \ifclassday\csname C\theclassnum options\endcsname\fi%   by classnumber
+   \hbox to \hsize{\calprintdate\hfill\ifclassday\calprintclass\fi}%
+   \vspace{2pt}
+      \begingroup
+        \let\\=\ca@normbs
+        \raggedright
+        \sloppy
+        \the\weeklytext\par
+        \csname\curdate text\endcsname%
+        \ifclassday\csname C\theclassnum text\endcsname
+                   \stepcounter{classnum}\fi
+      \endgroup
+   }}%
+    \global\newmonthfalse
+    \advancedate%
+}%
+\renewcommand\advancedate{\stepcounter{date}% Added here
+    \ifnum\thedate>\monthlength\relax
+       \addtocounter{date}{-\monthlength}\advancemonth\fi}
+
+\renewcommand\advancemonth{%
+   \global\newmonthtrue\stepcounter{month}% <-- another spurious space
+   \ifnum\c@month>12
+      \stepcounter{year}\setleap\setcounter{month}1\fi}
+
+% I've used this on my original file to alter the date format and color
+\makeatletter
+\renewcommand\monthname{
+    \ifcase\c@month
+        \or jan \or fev \or mar \or abr
+        \or mai \or jun \or jul \or ago
+        \or sep \or out \or nov \or dez
+    \fi
+}
+\renewcommand\ordinaldate{
+    \the\c@date\textsuperscript{o}
+}
+\renewcommand\calprintdate{% Added here
+    \ifnewmonth
+        \textbf{\arabic{date}.\arabic{month}.}
+    \else
+        \arabic{date}.\arabic{month}.
+    \fi
+}
+\makeatother
+
+
+
+% Command für Feiertage
+\newcommand{\Feiertag}[2]{%
+  \options{#1}{\noclassday}
+  \caltext{#1}{\textcolor{red}{#2}}
+}
+% Command für Ferien
+\newcommand{\Ferien}[2]{%
+  \options{#1}{\noclassday}
+  \caltext{#1}{\textcolor{red}{#2}}
+}
+% Command für Termin
+\newcommand{\Termin}[2]{%
+  \caltext{#1}{\textcolor{gruen}{\textbf{#2}}}
+}
+
+% Command für Klassenarbeit
+\newcommand{\KA}[2]{%
+  \caltext{#1}{\textcolor{orange}{\textbf{#2}}}
+  % Klassenarbeiten zählen nicht als Unterricht!
+  \options{#1}{\noclassday}
+}
+
+% Command für GFS
+\newcommand{\GFS}[2]{%
+  \caltext{#1}{\textcolor{orange}{GFS \textbf{#2}}}
+}

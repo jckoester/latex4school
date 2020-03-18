@@ -1,36 +1,625 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Arch Linux) (preloaded format=pdflatex 2015.11.18)  18 NOV 2015 12:15
+This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018/Arch Linux) (preloaded format=pdftex 2018.9.6)  16 SEP 2018 12:06
 entering extended mode
  restricted \write18 enabled.
+ file:line:error style messages enabled.
  %&-line parsing enabled.
-**chem.tex
+**\input chem.tex
 (./chem.tex
-LaTeX2e <2015/10/01> patch level 2
-Babel <3.9m> and hyphenation patterns for 79 languages loaded.
+./chem.tex:9: Undefined control sequence.
+l.9 \usepackage
+               {chemmacros}
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
 
-! LaTeX Error: \usepackage before \documentclass.
+./chem.tex:11: Undefined control sequence.
+l.11 \usepackage
+                {ghsystem}
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
 
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
+./chem.tex:13: Undefined control sequence.
+l.13 \usepackage
+                {chemformula}
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./chem.tex:15: Undefined control sequence.
+l.15 \usepackage
+                {chemfig}
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./chem.tex:17: Undefined control sequence.
+l.17 \usepackage
+                {endiagram}
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./chem.tex:21: Undefined control sequence.
+l.21 \ghssetup
+              {language=german}
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./chem.tex:22: Undefined control sequence.
+l.22 \chemsetup
+               {language=german}
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./chem.tex:27: Undefined control sequence.
+l.27 \definesubmol
+                  \nobond{[,0.2,,,draw=none]}
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./chem.tex:27: Undefined control sequence.
+l.27 \definesubmol\nobond
+                         {[,0.2,,,draw=none]}
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./chem.tex:29: Undefined control sequence.
+l.29 \setatomsep
+                {2em}
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./chem.tex:31: Undefined control sequence.
+l.31 \chemsetup
+               { modules = all }
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./chem.tex:32: Undefined control sequence.
+l.32 \chemsetup
+               [redox]{explicit-sign=true}
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./chem.tex:33: Undefined control sequence.
+l.33 \chemsetup
+               [redox]{explicit-zero-sign=true}
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./chem.tex:34: Undefined control sequence.
+l.34 \chemsetup
+               [redox]{pos=top}
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./chem.tex:36: Undefined control sequence.
+l.36 \setlewis
+              {0.5ex}{1ex}{}
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./chem.tex:40: Undefined control sequence.
+l.40 \ExplSyntaxOn
+                  
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./chem.tex:41: Undefined control sequence.
+l.41 \bool
+          _if_exist:NF \l__chemmacros_hyperref_bool
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./chem.tex:41: Missing $ inserted.
+<inserted text> 
+                $
+<to be read again> 
+                   _
+l.41 \bool_
+           if_exist:NF \l__chemmacros_hyperref_bool
+I've inserted a begin-math/end-math symbol since I think
+you left one out. Proceed, with fingers crossed.
+
+./chem.tex:41: Missing { inserted.
+<to be read again> 
+                   _
+l.41 \bool_if_exist:NF \l__
+                           chemmacros_hyperref_bool
+A left brace was mandatory here, so I've put one in.
+You might want to delete and/or insert some corrections
+so that I will find a matching right brace soon.
+(If you're confused by all this, try typing `I}' now.)
+
+./chem.tex:43: Undefined control sequence.
+l.43   \bool
+            _new:N \l__chemmacros_hyperref_bool
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./chem.tex:43: Missing { inserted.
+<to be read again> 
+                   _
+l.43   \bool_new:N \l__
+                       chemmacros_hyperref_bool
+A left brace was mandatory here, so I've put one in.
+You might want to delete and/or insert some corrections
+so that I will find a matching right brace soon.
+(If you're confused by all this, try typing `I}' now.)
+
+./chem.tex:45: Undefined control sequence.
+l.45 \ExplSyntaxOff
+                   
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./chem.tex:46: Missing $ inserted.
+<inserted text> 
+                $
+<to be read again> 
+                   \par 
+l.46 
+     
+I've inserted a begin-math/end-math symbol since I think
+you left one out. Proceed, with fingers crossed.
+
+./chem.tex:46: Missing } inserted.
+<inserted text> 
+                }
+<to be read again> 
+                   $
+<to be read again> 
+                   \par 
+l.46 
+     
+I've inserted something that you may have forgotten.
+(See the <inserted text> above.)
+With luck, this will get me unwedged. But if you
+really didn't forget anything, try typing `2' now; then
+my insertion and my current dilemma will both disappear.
+
+./chem.tex:46: Missing } inserted.
+<inserted text> 
+                }
+<to be read again> 
+                   $
+<to be read again> 
+                   \par 
+l.46 
+     
+I've inserted something that you may have forgotten.
+(See the <inserted text> above.)
+With luck, this will get me unwedged. But if you
+really didn't forget anything, try typing `2' now; then
+my insertion and my current dilemma will both disappear.
+
+./chem.tex:49: Undefined control sequence.
+l.49 \chemsetup
+               [phases]{pos=sub}
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./chem.tex:50: Undefined control sequence.
+l.50 \DeclareChemTranslation
+                            {phase-sld}{german}{s}
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./chem.tex:51: Undefined control sequence.
+l.51 \DeclareChemTranslation
+                            {phase-lqd}{german}{l}
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./chem.tex:53: Undefined control sequence.
+l.53 \NewChemReaction
+                     {reactionsat}[1]{alignat}
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./chem.tex:54: Undefined control sequence.
+l.54 \NewChemReaction
+                     {reactionsat*}[1]{alignat*}
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./chem.tex:56: Undefined control sequence.
+l.56 \RenewChemState
+                    \entropy{  symbol = S, unit = \joule\per\kelvin\per\mole...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./chem.tex:56: Undefined control sequence.
+l.56 \RenewChemState\entropy
+                            {  symbol = S, unit = \joule\per\kelvin\per\mole...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./chem.tex:56: Undefined control sequence.
+l.56 ...mState\entropy{  symbol = S, unit = \joule
+                                                  \per\kelvin\per\mole, pre ...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./chem.tex:56: Undefined control sequence.
+l.56 ...te\entropy{  symbol = S, unit = \joule\per
+                                                  \kelvin\per\mole, pre =$\D...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./chem.tex:56: Undefined control sequence.
+l.56 ...opy{  symbol = S, unit = \joule\per\kelvin
+                                                  \per\mole, pre =$\Delta$ }
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./chem.tex:56: Undefined control sequence.
+l.56 ...  symbol = S, unit = \joule\per\kelvin\per
+                                                  \mole, pre =$\Delta$ }
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./chem.tex:56: Undefined control sequence.
+l.56 ...bol = S, unit = \joule\per\kelvin\per\mole
+                                                  , pre =$\Delta$ }
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./chem.tex:61: Undefined control sequence.
+l.61 \definesubmol
+                  {rohe}{C(-[4]H)(-[0]\lewis{26,O}(-[0]H))}
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./chem.tex:61: Undefined control sequence.
+l.61 \definesubmol{rohe}{C(-[4]H)(-[0]\lewis
+                                            {26,O}(-[0]H))}
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./chem.tex:62: Undefined control sequence.
+l.62 \definesubmol
+                  {lohe}{C(-[0]H)(-[4]\lewis{26,O}(-[4]H))}
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./chem.tex:62: Undefined control sequence.
+l.62 \definesubmol{lohe}{C(-[0]H)(-[4]\lewis
+                                            {26,O}(-[4]H))}
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./chem.tex:64: Undefined control sequence.
+l.64 \definesubmol
+                  {roh}{C(-[4]H)(-[0]OH)}
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./chem.tex:65: Undefined control sequence.
+l.65 \definesubmol
+                  {loh}{C(-[0]H)(-[4]HO)}
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./chem.tex:68: Undefined control sequence.
+l.68 \definesubmol
+                  {rohre}{\color{red}{C}(-[4]H)(-[0]\lewis{26,O}(-[0]H))}
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./chem.tex:68: Undefined control sequence.
+l.68 \definesubmol{rohre}{\color
+                                {red}{C}(-[4]H)(-[0]\lewis{26,O}(-[0]H))}
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./chem.tex:68: Undefined control sequence.
+l.68 ...ol{rohre}{\color{red}{C}(-[4]H)(-[0]\lewis
+                                                  {26,O}(-[0]H))}
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./chem.tex:69: Undefined control sequence.
+l.69 \definesubmol
+                  {lohre}{\color{red}{C}(-[0]H)(-[4]\lewis{26,O}(-[4]H))}
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./chem.tex:69: Undefined control sequence.
+l.69 \definesubmol{lohre}{\color
+                                {red}{C}(-[0]H)(-[4]\lewis{26,O}(-[4]H))}
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./chem.tex:69: Undefined control sequence.
+l.69 ...ol{lohre}{\color{red}{C}(-[0]H)(-[4]\lewis
+                                                  {26,O}(-[4]H))}
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./chem.tex:70: Undefined control sequence.
+l.70 \definesubmol
+                  {rohr}{\color{red}{C}(-[4]H)(-[0]OH)}
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./chem.tex:70: Undefined control sequence.
+l.70 \definesubmol{rohr}{\color
+                               {red}{C}(-[4]H)(-[0]OH)}
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./chem.tex:71: Undefined control sequence.
+l.71 \definesubmol
+                  {lohr}{\color{red}{C}(-[0]H)(-[4]HO)}
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./chem.tex:71: Undefined control sequence.
+l.71 \definesubmol{lohr}{\color
+                               {red}{C}(-[0]H)(-[4]HO)}
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./chem.tex:74: Undefined control sequence.
+l.74 \definesubmol
+                  {rohs}{C(-[1,0.45,,,draw=none]\color{rot}{\star})(-[4]H)(-...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./chem.tex:74: Undefined control sequence.
+l.74 ...submol{rohs}{C(-[1,0.45,,,draw=none]\color
+                                                  {rot}{\star})(-[4]H)(-[0]OH)}
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./chem.tex:74: Missing $ inserted.
+<inserted text> 
+                $
+<to be read again> 
+                   \star 
+l.74 ...}{C(-[1,0.45,,,draw=none]\color{rot}{\star
+                                                  })(-[4]H)(-[0]OH)}
+I've inserted a begin-math/end-math symbol since I think
+you left one out. Proceed, with fingers crossed.
+
+./chem.tex:74: Extra }, or forgotten $.
+l.74 ...{C(-[1,0.45,,,draw=none]\color{rot}{\star}
+                                                  )(-[4]H)(-[0]OH)}
+I've deleted a group-closing symbol because it seems to be
+spurious, as in `$x}$'. But perhaps the } is legitimate and
+you forgot something else, as in `\hbox{$x}'. In such cases
+the way to recover is to insert both the forgotten and the
+deleted material, e.g., by typing `I$}'.
+
+./chem.tex:74: Extra }, or forgotten $.
+l.74 ...w=none]\color{rot}{\star})(-[4]H)(-[0]OH)}
                                                   
-l.9 \usepackage{
-                chemmacros}
-? 
+I've deleted a group-closing symbol because it seems to be
+spurious, as in `$x}$'. But perhaps the } is legitimate and
+you forgot something else, as in `\hbox{$x}'. In such cases
+the way to recover is to insert both the forgotten and the
+deleted material, e.g., by typing `I$}'.
+
+./chem.tex:75: Undefined control sequence.
+l.75 \definesubmol
+                  {lohs}{C(-[1,0.45,,,draw=none]\color{rot}{\star})(-[0]H)(-...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./chem.tex:75: Undefined control sequence.
+l.75 ...submol{lohs}{C(-[1,0.45,,,draw=none]\color
+                                                  {rot}{\star})(-[0]H)(-[4]HO)}
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./chem.tex:76: Undefined control sequence.
+l.76 \definesubmol
+                  {rohsr}{\color{rot}{C}(-[1,0.45,,,draw=none]\color{rot}{\s...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./chem.tex:76: Undefined control sequence.
+l.76 \definesubmol{rohsr}{\color
+                                {rot}{C}(-[1,0.45,,,draw=none]\color{rot}{\s...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./chem.tex:76: Undefined control sequence.
+l.76 ...\color{rot}{C}(-[1,0.45,,,draw=none]\color
+                                                  {rot}{\star})(-[4]H)(-[0]OH)}
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./chem.tex:77: Undefined control sequence.
+l.77 \definesubmol
+                  {lohsr}{\color{rot}{C}(-[1,0.45,,,draw=none]\color{rot}{\s...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./chem.tex:77: Undefined control sequence.
+l.77 \definesubmol{lohsr}{\color
+                                {rot}{C}(-[1,0.45,,,draw=none]\color{rot}{\s...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./chem.tex:77: Undefined control sequence.
+l.77 ...\color{rot}{C}(-[1,0.45,,,draw=none]\color
+                                                  {rot}{\star})(-[0]H)(-[4]HO)}
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+)
 ! Emergency stop.
- ...                                              
-                                                  
-l.9 \usepackage{
-                chemmacros}
-\usepackage may only appear in the document preamble, i.e.,
-between \documentclass and \begin{document}.
+<*> \input chem.tex
+                   
+*** (job aborted, no legal \end found)
 
- 
-Here is how much of TeX's memory you used:
- 6 strings out of 493054
- 268 string characters out of 6140585
- 53374 words of memory out of 5000000
- 3628 multiletter control sequences out of 15000+600000
- 3640 words of font info for 14 fonts, out of 8000000 for 9000
- 1141 hyphenation exceptions out of 8191
- 5i,0n,5p,96b,14s stack positions out of 5000i,500n,10000p,200000b,80000s
 !  ==> Fatal error occurred, no output PDF file produced!

@@ -1,5 +1,23 @@
 % eigene Commands 
 
+% Zählereinstellungen für die reactions-Umgebung
+\chemsetup[reactions]{
+before-tag = R,
+tag-open = [ ,
+tag-close = ],
+list-entry = {}, % Auslassen des Wortes Reaktion am Anfang eines Listeneintrags
+tocbasic=true, % Verwende die KOMA-Optionen für listof
+}
+
+% Zähler für Reaktionenn, die nicht in einer reactions-Umgebung dargestellt werden können
+% z.B. komplexere Mechanismen mit großen Strukturen
+% TODO: Referenzierung funktioniert auf diese Weise nicht!
+\newcommand{\myreaction}[1]{
+  \refstepcounter{reaction}\hfill [R\thereaction]
+\addcontentsline{lor}{reaction}{ \protect [R\thereaction]~#1}\par}
+
+%% WIRD DAS NOCH BENUTZT??
+
 % Rahmenumgebungen (für Skripte)
 % \theoremstyle{example}
  \newtheoremstyle{definition}% name of the style to be used
@@ -14,7 +32,7 @@
 
 \theoremstyle{definition} 
 \newtheorem*{beispiel*}{Beispiel}
-
+\newtheorem*{beispiele*}{Beispiele}
 % --| Merkkasten | ---------------------------------------------------
 \mdfdefinestyle{merkestyle}{%
   linecolor=red, innerlinewidth=2pt, outerlinewidth=1pt,%
@@ -31,11 +49,11 @@
 % --| Experiment | ---------------------------------------------------
 
 % Liste der Experimente:
-\newcommand{\listexpname}{Liste der Versuche}
-\newlistof[chapter]{experiment}{exp}{\listexpname}
+%\newcommand{\listexpname}{Liste der Versuche}
+%\newlistof[chapter]{experiment}{exp}{\listexpname}
 % Liste der GFS-Themen
-\newcommand{\listgfsname}{Liste der GFS-Themen}
-\newlistof[chapter]{gfscount}{gfs}{\listgfsname}
+%\newcommand{\listgfsname}{Liste der GFS-Themen}
+%\newlistof[chapter]{gfscount}{gfs}{\listgfsname}
 
 % Styles für Experimentumgebungen, sollten vielleicht besser nach -> styles/
 \mdfdefinestyle{expstyle_lv}{%
@@ -76,10 +94,22 @@
   {\newline}{\thmname{#1}\thmnumber{ #2}:\thmnote{ #3}}
 
 % Zähler für Versuche: 
-\newcounter{exp}[chapter]
-% Umgebung für Lehrerversuche:
+\makeatletter
+% Zähler für Versuche:
+\@ifclassloaded{ksscr}{
+  % Referenzzähler für Zähler im Skript ist chapter
+  \def\expcntref{chapter}
+}{%
+  % SOnst section
+  \def\expcntref{section}
+  }
+  \newcounter{exp}[\expcntref]
+\makeatother
+% Umgebung für Versuche:
 \newenvironment{experiment}[2][]{%
   \refstepcounter{exp}%
+  % Füge einen Eintrag zur Liste (listoftheorems) hinzu
+  \addcontentsline{loe}{exp#1}{\protect V\textsubscript{\theexp}  #2}\par
    \def\expcolor{gray!40}
    \def\theoretical{}
    \def\lv{lv}\def\sv{sv}\def\tv{tv}
@@ -199,3 +229,128 @@
       }
     \begin{mdframed}[]\relax%
     }{\end{mdframed}}
+
+% IST DOCH NICHT NÖTIG, dank addcontentsline in der alten Umgebung!
+% %% Neue Umgebungen für Versuche basierend auf thmtools
+% % https://tex.stackexchange.com/a/110249
+% % Statt des internen Zählers von thmtools wird der eigene Zähler exp (durchlaufend über alle Versuche) verwendet.
+% \usepackage{thmtools}
+  
+% %% Lehrerversuche
+% % Stil
+% \declaretheoremstyle[
+% preheadhook={\refstepcounter{exp}},
+% postheadspace={\newline},
+% postheadhook={\textcolor{gray!80}{\rule[.6ex]{\linewidth}{0.4pt}}},
+% headformat={\large \textcolor{orange}{V\textsubscript{\theexp}:} \NOTE},
+% headfont=\sffamily,
+% notefont=\sffamily,
+% headpunct={},
+% notebraces={}{},
+% headindent={},
+% mdframed={
+%   innertopmargin=6pt,
+%   innerbottommargin=6pt, 
+%   skipabove=\parsep, 
+%   skipbelow=\parsep, 
+%   linecolor=orange!80,
+%   linewidth=.5pt,
+%   backgroundcolor=orange!8,
+% }
+% ]{expstyle_lv}
+% % Umgebung
+% \declaretheorem[
+% within=exp,
+% numberwithin={},
+% style=expstyle_lv,
+% ]{explv}
+% % Listeneintrag
+% % https://tex.stackexchange.com/a/16498
+% % https://tex.stackexchange.com/a/180749
+% \makeatletter
+% \def\ll@explv{%
+%   \protect\numberline{V\textsubscript{\theexp}}%
+%   \ifx\@empty\thmt@shortoptarg
+%     \thmt@thmname
+%   \else
+%     \thmt@shortoptarg
+%     \fi}
+% \makeatother
+
+% %% Schülerversuche
+% % Stil
+% \declaretheoremstyle[
+% preheadhook={\refstepcounter{exp}},
+% postheadspace={\newline},
+% postheadhook={\textcolor{gray!80}{\rule[.6ex]{\linewidth}{0.4pt}}},
+% headformat={\large \textcolor{blau}{V\textsubscript{\theexp}:} \NOTE},
+% headfont=\sffamily,
+% notefont=\sffamily,
+% headpunct={},
+% notebraces={}{},
+% headindent={},
+% mdframed={
+%   innertopmargin=6pt,
+%   innerbottommargin=6pt, 
+%   skipabove=\parsep, 
+%   skipbelow=\parsep, 
+%   linecolor=blau!80,
+%   linewidth=.5pt,
+%   backgroundcolor=blau!8,
+% }
+% ]{expstyle_sv}
+% % Umgebung
+% \declaretheorem[
+% within=exp,
+% numberwithin={},
+% style=expstyle_sv,
+% ]{expsv}
+% % Listeneintrag
+% \makeatletter
+% \def\ll@expsv{%
+%   \protect\numberline{V\textsubscript{\theexp}}%
+%   \ifx\@empty\thmt@shortoptarg
+%     \thmt@thmname
+%   \else
+%     \thmt@shortoptarg
+%     \fi}
+%   \makeatother
+
+% %% Theoretische Versuche
+% % Stil
+% \declaretheoremstyle[
+% preheadhook={\refstepcounter{exp}},
+% postheadspace={\newline},
+% postheadhook={\textcolor{gray!80}{\rule[.6ex]{\linewidth}{0.4pt}}},
+% headformat={\large \textcolor{rot}{V\textsubscript{\theexp}:} \NOTE},
+% headfont=\sffamily,
+% notefont=\sffamily,
+% headpunct={},
+% notebraces={}{},
+% headindent={},
+% mdframed={
+%   innertopmargin=6pt,
+%   innerbottommargin=6pt, 
+%   skipabove=\parsep, 
+%   skipbelow=\parsep, 
+%   linecolor=rot!80,
+%   linewidth=.5pt,
+%   backgroundcolor=rot!8,
+% }
+% ]{expstyle_tv}
+% % Umgebung
+% \declaretheorem[
+% within=exp,
+% numberwithin={},
+% style=expstyle_tv,
+% ]{exptv}
+% % Listeneintrag
+% \makeatletter
+% \def\ll@exptv{%
+%   \protect\numberline{V\textsubscript{\theexp}}%
+%   \ifx\@empty\thmt@shortoptarg
+%     \thmt@thmname
+%   \else
+%     \thmt@shortoptarg
+%     \fi}
+%   \makeatother

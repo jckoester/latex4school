@@ -169,7 +169,8 @@
 % Aufzählungen: %TODO: Definitiv für alle richtig!
 \usepackage{paralist}
 \setlength{\itemsep}{-2pt} % Abstand der items (funktioniert das überhaupt?)
-%
+% multicols
+\usepackage{multicol}
 % % Kopf und Fußzeilen
 % \cfoot{}
 % \ifoot{}
