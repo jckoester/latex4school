@@ -60,7 +60,7 @@
 %\usepackage{tocloft}
 
 % TEST
-\usepackage{scrextend}
+%\usepackage{scrextend}
 
 % Encoding und Sprache
 \input{inc/general-encoding.tex}

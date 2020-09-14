@@ -34,7 +34,7 @@
 % landscape,
 % paper=128mm:96mm, % The same paper size as used in the beamer class
 fontsize=11pt, % Font size
-pagesize, % Write page size to dvi or pdf
+%pagesize, % Write page size to dvi or pdf
 parskip=half-, % Paragraphs separated by half a line
 ]{scrartcl} % KOMA script (article)
 
@@ -62,7 +62,7 @@ footskip=8.5mm
 \usepackage{codesection}
 \usepackage{templatetools}
 % % % Listen, Inhaltsverszeichnisse (nur ue und script)
-\usepackage{tocloft}
+% \usepackage{tocloft}
 % % % Encoding und Sprache
 \input{inc/general-encoding.tex}
 % % Schrift und Fonts
@@ -145,10 +145,12 @@ footskip=8.5mm
 \usepackage{multicol} % Required for creating multiple columns in slides
 \usepackage{lastpage} % For printing the total number of pages at the bottom of each slide
 \usepackage{microtype} % Better typography
-\usepackage{tocstyle} % Required for customizing the table of contents
+% Not using ToC!
+%\usepackage{tocstyle} % Required for customizing the table of contents
 %------------------------------------------------
 % Slide layout configuration
-\usepackage{scrpage2} % Required for customization of the header and footer
+%\usepackage{scrpage2} % Required for customization of the header and footer
+\usepackage{scrlayer-scrpage}
 \pagestyle{scrheadings} % Activates the pagestyle from scrpage2 for custom headers and footers
 \clearscrheadfoot % Remove the default header and footer
 \setkomafont{pageheadfoot}{\normalfont\color{black}\sffamily} % Font settings for the header and footer
@@ -160,11 +162,12 @@ footskip=8.5mm
 \addtolength{\parskip}{\z@\@plus .25fil}
 \makeatother
 
+%  NOT USING ToC!
 % Remove page numbers and the dots leading to them from the outline slide
-\makeatletter
-\newtocstyle[noonewithdot]{nodotnopagenumber}{\settocfeature{pagenumberbox}{\@gobble}}
-\makeatother
-\usetocstyle{nodotnopagenumber}
+% \makeatletter
+% \newtocstyle[noonewithdot]{nodotnopagenumber}{\settocfeature{pagenumberbox}{\@gobble}}
+% \makeatother
+% \usetocstyle{nodotnopagenumber}
 
 % \AtBeginDocument{\renewcaptionname{german}{\contentsname}{\Large Outline}} % Change the name of the table of contents
 %------------------------------------------------
@@ -185,16 +188,14 @@ color=chapterpagecolor
 
 %------------------------------------------------
 % Footer configuration
-\setlength{\footheight}{4mm} % Height of the footer
+\setlength{\footheight}{16pt} % Height of the footer
 \addtokomafont{pagefoot}{\tiny} % Small font size for the footnote
 
 \ifoot{% Left side
 \hspace{-4mm}
 \begin{tikzpicture}[remember picture,overlay]
-\node [xshift=\paperwidth/2] at (current page.south west)[rectangle,fill,inner sep=0pt,minimum width=\paperwidth,minimum height=\footheight*2,color=hellgrau!30]{}; % Gray box
-
-\node [xshift=\paperwidth/2,yshift=\footheight] at (current page.south west)[rectangle,fill,inner sep=0pt,minimum width=\paperwidth,minimum height=1pt,top color=chapterpagecolor,bottom color=chapterpagecolor]{}; % Green bar
-
+  \node [xshift=\paperwidth/2] at (current page.south west)[rectangle,fill,inner sep=0pt,minimum width=\paperwidth,minimum height=\footheight*2,color=hellgrau!30]{}; % Gray box
+  \node [xshift=\paperwidth/2,yshift=\footheight] at (current page.south west)[rectangle,fill,inner sep=0pt,minimum width=\paperwidth,minimum height=1pt,top color=chapterpagecolor,bottom color=chapterpagecolor]{}; % Green bar
 \end{tikzpicture}
 \myauthor\ \raisebox{0.2mm}{$\bm{\vert}$}\ \myuni % Left side text
 }
