@@ -183,9 +183,9 @@ color=chapterpagecolor
 ]{}; % Colored bar
 \node[below of=mybar,yshift=3.3mm,rectangle,shade,inner sep=0pt,minimum width=128mm,minimum height =1.5mm,top color=black!50,bottom color=white]{}; % Shadow under the colored bar shadow
 \end{tikzpicture}
-\color{white}\runninghead} % Header text defined by the \runninghead command below and colored white for contrast
+\color{chapterheadcolor}\runninghead} % Header text defined by the \runninghead command below and colored white for contrast
 %------------------------------------------------
-
+\definecolor{chapterheadcolor}{named}{black}
 %------------------------------------------------
 % Footer configuration
 \setlength{\footheight}{16pt} % Height of the footer

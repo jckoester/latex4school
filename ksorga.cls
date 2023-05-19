@@ -217,16 +217,16 @@
 % Command für Feiertage
 \newcommand{\Feiertag}[2]{%
   \options{#1}{\noclassday}
-  \caltext{#1}{\textcolor{red}{#2}}
+  \caltext{#1}{\textcolor{red}{\underline{#2}}}
 }
 % Command für Ferien
 \newcommand{\Ferien}[2]{%
   \options{#1}{\noclassday}
-  \caltext{#1}{\textcolor{red}{#2}}
+  \caltext{#1}{\textcolor{red}{\underline{#2}}}
 }
 % Command für Termin
 \newcommand{\Termin}[2]{%
-  \caltext{#1}{\textcolor{gruen}{\textbf{#2}}}
+  \caltext{#1}{\textcolor{gruen}{\underline{#2}}}
 }
 
 % Command für Klassenarbeit
@@ -239,4 +239,11 @@
 % Command für GFS
 \newcommand{\GFS}[2]{%
   \caltext{#1}{\textcolor{orange}{GFS \textbf{#2}}}
+}
+
+% Command für Abitur
+\newcommand{\Abi}[2]{%
+  \caltext{#1}{\textcolor{blau}{\textbf{#2}}}
+  % Abitur zählt nicht als Unterricht!
+  \options{#1}{\noclassday}
 }

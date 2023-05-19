@@ -1,3 +1,18 @@
 % Classes and options to typset exercises and tasks
 \usepackage{xsim}
 \usepackage{tasks}
+% BUG FIX
+% https://github.com/cgnieder/xsim/issues/99
+
+\ExplSyntaxOn
+\prg_set_conditional:Npnn \xsim_if_exchange:nnn #1#2#3 {T,F,TF}
+  {
+    \str_if_eq:nnTF {#3} {exercise}
+      {
+        \xsim_if_boolean_property:nnnTF {#1} {#2} {solution}
+          { \prg_return_true: }
+          { \prg_return_false: }
+      }
+      { \prg_return_false: }
+  }
+\ExplSyntaxOff
