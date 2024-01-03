@@ -61,15 +61,15 @@
 
 %% Submodules for Fischer formulas
 % Plain version with lewis electrons
-\definesubmol{rohe}{C(-[4]H)(-[0]\lewis{26,O}(-[0]H))}
-\definesubmol{lohe}{C(-[0]H)(-[4]\lewis{26,O}(-[4]H))}
+\definesubmol{rohe}{C(-[4]H)(-[0]\charge{90=\|, -90=\|}{O}(-[0]H))}
+\definesubmol{lohe}{C(-[0]H)(-[4]\charge{90=\|, -90=\|}{O}(-[4]H))}
 % and without
 \definesubmol{roh}{C(-[4]H)(-[0]OH)}
 \definesubmol{loh}{C(-[0]H)(-[4]HO)}
 
 % red versions
-\definesubmol{rohre}{\color{red}{C}(-[4]H)(-[0]\lewis{26,O}(-[0]H))}
-\definesubmol{lohre}{\color{red}{C}(-[0]H)(-[4]\lewis{26,O}(-[4]H))}
+\definesubmol{rohre}{\color{red}{C}(-[4]H)(-[0]\charge{90=\|, -90=\|}{O}(-[0]H))}
+\definesubmol{lohre}{\color{red}{C}(-[0]H)(-[4]\charge{90=\|, -90=\|}{O}(-[4]H))}
 \definesubmol{rohr}{\color{red}{C}(-[4]H)(-[0]OH)}
 \definesubmol{lohr}{\color{red}{C}(-[0]H)(-[4]HO)}
 
